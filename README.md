@@ -1,8 +1,7 @@
-# RUN567 UI + CLONE
+# RUN567 Clone Project
 
-Mini project that cloning RUN567 frontend UI
+This project is a React application created with Vite and TailwindCSS that serves as a frontend-only clone of https://run567.co/. It aims to replicate the user interface and some functionalities of the original website.
 
-Reference website :  https://run567.co/
 
 
 ## Getting Started
