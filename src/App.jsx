@@ -1,15 +1,16 @@
-import { RouterProvider } from "react-router-dom"
-import router from "./router/appRouter"
+import { Outlet } from "react-router-dom"
 import Navbar from "./components/Navbar/Navbar"
+import Footer from "./components/Footer/Footer"
 
 function App() {
 
-
   return (
     <>
-      <Navbar />
-      <RouterProvider router={router} />
-      {/* <div className="bg-green-500"> heyyyyy</div> */}
+      <div className="font-montserrat bg-black">
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </div>
     </>
   )
 }

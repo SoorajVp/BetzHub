@@ -1,8 +1,18 @@
-import React from 'react'
+import HomeBanner from '../components/Banner/HomeBanner';
+import HomeMiniBanner from '../components/Banner/HomeMiniBanner';
+import ButtonsRaw from '../components/Buttons/ButtonsRaw';
+import HomeMainCards from '../components/Cards/HomeMainCard';
+import HomeMiniCards from '../components/Cards/HomeMiniCard';
 
 const Home = () => {
   return (
-    <div className='bg-blue-400'>Home Page</div>
+    <>
+      <HomeBanner />
+      <ButtonsRaw />
+      <HomeMainCards />
+      <HomeMiniBanner />
+      <HomeMiniCards />
+    </>
   )
 }
 
