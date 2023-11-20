@@ -1,8 +1,25 @@
-# React + Vite
+# RUN567 UI + CLONE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini project that cloning RUN567 frontend UI
 
-Currently, two official plugins are available:
+Reference website :  https://run567.co/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Getting Started
+
+### Prerequisites
+
+List any software or tools that need to be installed before running your project.
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/your-project.git
+
+# Change into the project directory
+cd your-project
+
+# Install dependencies
+- npm install
+- npm run dev
