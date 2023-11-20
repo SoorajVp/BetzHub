@@ -5,7 +5,7 @@ const HomeBanner = () => {
   return (
     <div>
 
-      <div className='grid md:grid-cols-2 bg-black'>
+      <div className='grid md:grid-cols-2 bg-black py-5'>
         <div className='flex flex-col justify-center items-center py-10 md:p-0'>
           <h1 className='uppercase font-extrabold text-white text-4xl'> Play big <br /> win bigger </h1>
           <div className='text-white my-6 space-x-5 text-sm'>

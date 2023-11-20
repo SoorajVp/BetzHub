@@ -13,6 +13,9 @@ const HomeMiniBanner = () => {
         { name: "Lavanya", amount: 12000 },
         { name: "Gokul", amount: 25000 },
         { name: "Sooraj", amount: 34000 },
+        { name: "Gawri", amount: 23456 },
+        { name: "Sheeba", amount: 20000 },
+        { name: "Sooraj", amount: 34000 },
     ]
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 mx-10'>

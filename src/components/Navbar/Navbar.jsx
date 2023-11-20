@@ -1,6 +1,8 @@
 import React from 'react'
 import logo from '../../assets/5_1.png'
 import SearchIcon from '../../assets/search2line.svg'
+import RegisterButton from '../Modals/Register'
+import LoginButton from '../Modals/Login'
 
 
 const Navbar = () => {
@@ -11,13 +13,13 @@ const Navbar = () => {
         { name: "Inplay", href: '/inplay' }
     ]
     return (
-        <div className='flex justify-between bg-primary text-white'>
+        <div className='flex justify-between bg-primary text-white fixed w-full'>
             <div className='flex'>
-                <div className=''>
-                    <img src={logo} className='h-12' alt="Logo" />
+                <div className='p-0'>
+                    <img src={logo} className='h-10' alt="Logo" />
                 </div>
 
-                <div className='pt-2.5 font-bold text-xl'>BETZHUB</div>
+                <div className='pt-1.5 font-bold text-lg'>BETZHUB</div>
 
                 {/* <div className='p-3'>
                     <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -31,19 +33,19 @@ const Navbar = () => {
 
             </div>
 
-            <div className='p-2 md:block hidden'>
+            <div className='p-1.5 md:block hidden'>
                 <ul className='flex space-x-6 text-sm'>
                     {navList?.map((item) =>
-                        <li className='hover:bg-gray-100 hover:text-gray-800 px-3 py-1.5 rounded-md' key={item.href}>{item?.name}</li>
+                        <li className='hover:bg-gray-100 hover:text-gray-800 transition duration-300 px-3 py-1 rounded-md' key={item.href}>{item?.name}</li>
                     )}
                 </ul>
             </div>
 
-            <div className='space-x-1 md:space-x-3 p-3 text-xs' style={{fontSize: '12px'}}>
-                <button className='bg-red-400 px-2 md:px-3 py-1.5 rounded-md'>SIGN IN</button>
-                <button className='bg-red-400 px-2 md:px-3 py-1.5 rounded-md'>REGISTER</button>
+            <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{fontSize: '12px'}}>
+                {/* <button className='bg-red-400 px-2 md:px-3 py-1 rounded-md'>SIGN IN</button> */}
+                <LoginButton />
+                <RegisterButton />
             </div>
-
         </div>
     )
 }

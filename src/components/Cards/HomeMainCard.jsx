@@ -22,7 +22,7 @@ const HomeMainCards = () => {
         <div className='grid lg:grid-cols-2 gap-3 m-5 md:mt-14'>
             {
                 cardItems?.map((item) =>
-                    <div className='bg-slate-200 py-4 rounded-md' key={item?.head}>
+                    <div className='bg-slate-100 hover:bg-slate-50 py-4 rounded-md' key={item?.head}>
                         <div className='flex  pl-2'>
                             <img src={item?.image} alt="Image" className='w-36 h-48 block' />
                             <div className='flex flex-col px-4 space-y-1' style={{fontSize: '13px'}}>
