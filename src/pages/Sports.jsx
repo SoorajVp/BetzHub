@@ -9,7 +9,6 @@ const Sports = () => {
       <MainBanner />
       <ContentList />
       <Footer />
-
     </div>
   )
 }

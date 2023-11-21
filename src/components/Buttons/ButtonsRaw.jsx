@@ -14,10 +14,10 @@ const ButtonsRaw = () => {
   ]
 
   return (
-    <div className='grid grid-cols-2 md:grid-cols-4 text-white'>
+    <div className='grid grid-cols-2 md:grid-cols-4 md:mt-4 text-white'>
       {
         ButtonList?.map((item) =>
-          <div className='flex flex-col justify-center items-center bg-primary mt-8 mx-5 xl:mx-20 rounded-md' key={item?.value}>
+          <div className='flex justify-center items-center bg-primary m-1 mx-5 xl:mx-20 rounded-md' key={item?.value}>
             <div className='flex text-white my-2 md:mx-10 text-sm'>
               <img src={item?.icon} alt="Icon" className='w-5' />
               <h2 className='pl-2'>{item?.value}</h2>

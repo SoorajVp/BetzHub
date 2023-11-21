@@ -42,7 +42,7 @@ const LoginButton = () => {
 
     return (
         <div>
-            <button className='bg-red-400 px-2 md:px-3 py-1 font-bold rounded-md' onClick={openModal}>SIGN IN</button>
+            <button className='bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-2 md:px-3 py-1.5 font-bold rounded' onClick={openModal}>SIGN IN</button>
             {/* <button onClick={openModal}>Open Modal</button> */}
             <Modal
                 isOpen={modalIsOpen}

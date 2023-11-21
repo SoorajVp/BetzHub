@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         {
           location.pathname !== '/' ?
-            <div className="grid grid-cols-6 pt-10">
+            <div className="grid grid-cols-6 pt-12">
               <LeftBar />
               <Outlet />
               <RightBar />

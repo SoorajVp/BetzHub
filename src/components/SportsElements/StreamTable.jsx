@@ -1,4 +1,6 @@
 import vsIcon from '../../assets/tablervs.svg'
+import computerIcon from '../../assets/computerline.svg'
+
 import { StreamData } from '../../constants/streamList'
 
 const StreamTable = () => {
@@ -27,6 +29,7 @@ const StreamTable = () => {
                     </div>
 
                     <div className='flex items-center ml-2 p-0.5'>
+                        <img src={computerIcon} alt="VS icon" className='w-5 mr-2' />
                         <h2 className='px-1 rounded border-2 border-black text-sm'>M</h2>
                     </div>
 
@@ -34,18 +37,18 @@ const StreamTable = () => {
 
                 <div className='flex p-1 h-12  gap-1.5 lg:my-2.5 text-gray-500'>
                     <div className='flex w-full'>
-                        <div className='flex justify-center items-center bg-blue-200 rounded-l-xl w-[50%]'>-</div>
-                        <div className='flex justify-center items-center bg-red-200 rounded-r-xl w-[50%]'>-</div>
+                        <div className='flex justify-center items-center bg-blue-200 rounded-l-lg w-[50%]'>-</div>
+                        <div className='flex justify-center items-center bg-red-200 rounded-r-lg w-[50%]'>-</div>
                     </div>
 
                     <div className='flex w-full'>
-                        <div className='flex justify-center items-center bg-blue-200 rounded-l-xl w-[50%]'>-</div>
-                        <div className='flex justify-center items-center bg-red-200 rounded-r-xl w-[50%]'>-</div>
+                        <div className='flex justify-center items-center bg-blue-200 rounded-l-lg w-[50%]'>-</div>
+                        <div className='flex justify-center items-center bg-red-200 rounded-r-lg w-[50%]'>-</div>
                     </div>
 
                     <div className='flex w-full'>
-                        <div className='flex justify-center items-center bg-blue-200 rounded-l-xl w-[50%]'> - </div>
-                        <div className='flex justify-center items-center bg-red-200 rounded-r-xl w-[50%]'>-</div>
+                        <div className='flex justify-center items-center bg-blue-200 rounded-l-lg w-[50%]'> - </div>
+                        <div className='flex justify-center items-center bg-red-200 rounded-r-lg w-[50%]'>-</div>
                     </div>
                 </div>
 

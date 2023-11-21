@@ -11,9 +11,6 @@ import img11 from '../assets/screenshot-5-10@2x.png';
 import img12 from '../assets/screenshot-5-5@2x.png';
 import img13 from '../assets/screenshot-5-1@2x.png';
 
-
-
-
 export const VideoList = [
     img8,
     img2,
@@ -31,6 +28,4 @@ export const VideoList = [
     img13,
     img4,
     img8,
-
-
 ]
