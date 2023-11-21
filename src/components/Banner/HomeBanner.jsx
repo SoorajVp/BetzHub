@@ -7,7 +7,7 @@ const HomeBanner = () => {
 
       <div className='grid md:grid-cols-2 bg-black py-5'>
         <div className='flex flex-col justify-center items-center py-10 md:p-0'>
-          <h1 className='uppercase font-extrabold text-white text-4xl'> Play big <br /> win bigger </h1>
+          <h1 className='uppercase font-black text-white text-4xl'> Play big <br /> win bigger </h1>
           <div className='text-white my-6 space-x-5 text-sm'>
             <button className='bg-primary hover:bg-red-500 px-9 md:px-12 py-1.5 rounded-md'>Sports</button>
             <button className='bg-primary hover:bg-red-500 px-9 md:px-12 py-1.5 rounded-md'>Casino</button>

@@ -3,11 +3,12 @@ import Modal from 'react-modal';
 import logo from '../../assets/5_1.png'
 import LoginImg from '../../assets/5.png'
 import paymentList from '../../assets/subpayment.png'
-
+import twitter from '../../assets/twitterIcon.svg'
+import whatsapp from '../../assets/whatsappIcon.svg'
 
 const customStyles = {
     content: {
-        paddingTop: '0%',
+        paddingTop: '10px',
         top: '50%',
         left: '50%',
         right: 'auto',
@@ -37,7 +38,7 @@ const RegisterButton = () => {
 
     return (
         <div>
-            <button className='bg-red-400 px-2 md:px-3 py-1 rounded-md' onClick={openModal}>SIGN IN</button>
+            <button className='bg-red-400 px-2 md:px-3 py-1 font-bold rounded-md' onClick={openModal}>REGISTER</button>
             {/* <button onClick={openModal}>Open Modal</button> */}
             <Modal
                 isOpen={modalIsOpen}
@@ -105,6 +106,15 @@ const RegisterButton = () => {
 
                         <div className="relative mb-3">
                             <button className='py-2 hover:border border-2 rounded-md text-white bg-gradient-to-r from-red-200 to-primary w-full'>Register</button>
+                        </div>
+
+                        <div className="relative mb-2 text-xs flex justify-center">
+                            <p>Already have an account? <span className='font-semibold text-primary'>SignIn</span></p>
+                        </div>
+
+                        <div className="relative mb-3 text-xs flex justify-center gap-2">
+                            <img src={whatsapp} alt="Whatsapp" className='w-7' />
+                            <img src={twitter} alt="Whatsapp" className='w-7' />
                         </div>
 
                     </div>

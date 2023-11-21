@@ -3,6 +3,7 @@ import logo from '../../assets/5_1.png'
 import SearchIcon from '../../assets/search2line.svg'
 import RegisterButton from '../Modals/Register'
 import LoginButton from '../Modals/Login'
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -36,13 +37,12 @@ const Navbar = () => {
             <div className='p-1.5 md:block hidden'>
                 <ul className='flex space-x-6 text-sm'>
                     {navList?.map((item) =>
-                        <li className='hover:bg-gray-100 hover:text-gray-800 transition duration-300 px-3 py-1 rounded-md' key={item.href}>{item?.name}</li>
+                        <Link to={item?.href} className='hover:bg-gray-100 hover:text-gray-800 transition duration-300 px-3 py-1 rounded-md' key={item.href}>{item?.name}</Link>
                     )}
                 </ul>
             </div>
 
             <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{fontSize: '12px'}}>
-                {/* <button className='bg-red-400 px-2 md:px-3 py-1 rounded-md'>SIGN IN</button> */}
                 <LoginButton />
                 <RegisterButton />
             </div>

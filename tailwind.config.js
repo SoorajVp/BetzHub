@@ -11,7 +11,10 @@ export default {
       },
       colors: {
         primary: '#db0404'
-      }
+      },
+      fontSize: {
+        '2xs': '.625rem', // Your custom font size
+      },
     },
   },
   plugins: [],

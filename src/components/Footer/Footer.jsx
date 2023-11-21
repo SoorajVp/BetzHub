@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='md:grid md:grid-cols-3 gap-4 py-8 md:mx-10 flex flex-col text-white'>
+            <div className='md:grid md:grid-cols-3 gap-4 py-8 px-5 md:mx-10 flex flex-col text-white'>
                 <div className='flex flex-col text-xs gap-3'>
                     <img src={logo} alt="Logo" className='w-14' />
                     <h3>run567.co is Asia’s one of the biggest gaming platforms with over 350 games and sports available.</h3>
