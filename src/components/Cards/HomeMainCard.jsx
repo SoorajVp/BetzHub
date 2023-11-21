@@ -25,7 +25,7 @@ const HomeMainCards = () => {
                     <div className='bg-slate-100 hover:bg-slate-50 py-4 rounded-md' key={item?.head}>
                         <div className='flex  pl-2'>
                             <img src={item?.image} alt="Image" className='w-36 h-48 block' />
-                            <div className='flex flex-col px-4 space-y-1' style={{fontSize: '13px'}}>
+                            <div className='flex flex-col px-4 space-y-1' style={{ fontSize: '13px' }}>
                                 <h2 className='text-base font-bold uppercase pb-2'>{item?.head}</h2>
                                 <h3>{item?.text1}</h3>
                                 <h3 className='hidden md:block'>{item?.text2}</h3>

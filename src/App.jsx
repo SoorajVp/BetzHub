@@ -15,9 +15,12 @@ function App() {
               <LeftBar />
               <Outlet />
             </div> :
-            <Outlet />
+            <>
+              <Outlet />
+              <Footer />
+            </>
         }
-        <Footer />
+
       </div>
     </>
   )

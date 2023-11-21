@@ -17,6 +17,7 @@ const HomeMiniBanner = () => {
         { name: "Sheeba", amount: 20000 },
         { name: "Sooraj", amount: 34000 },
     ]
+
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 mx-10'>
 
@@ -27,8 +28,8 @@ const HomeMiniBanner = () => {
             <div className='flex flex-col col-span-2 gap-4 text-white px-5 md:px-14 md:pt-20'>
                 <div className='font-extrabold text-4xl'>Play Anytime, Anywhere!</div>
                 <div className='flex space-x-5 text-sm  overflow-x-scroll w-full'>
-                    {bannerDatas?.map((item) =>
-                        <div className='flex flex-col'>
+                    {bannerDatas?.map((item, index) =>
+                        <div className='flex flex-col' key={index}>
                             <h2>{item?.name}</h2>
                             <h2>₹{item?.amount}</h2>
                         </div>

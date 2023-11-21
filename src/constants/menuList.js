@@ -12,7 +12,7 @@ import RugbyIcon from '../assets/streamlineemojisamericanfootball.svg'
 import HockeyIcon from '../assets/hockey.png'
 import KabbadiIcon from '../assets/kabbadi.png'
 
-export const MenuLists = [
+export const MenuList = [
     {
         name: "Cricket",
         icon: CricketIcon,

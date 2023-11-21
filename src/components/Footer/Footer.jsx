@@ -1,11 +1,11 @@
 import gamingHead from '../../assets/capture.png'
-import logo from '../../assets/5_1.png'
 import PaymentIcons from '../../assets/payment-icon-group.svg'
+import logo from '../../assets/5_1.png'
 
 const Footer = () => {
     return (
         <>
-            <div className='md:grid md:grid-cols-3 md:gap-4 my-10  md:mx-10 flex flex-col justify-center items-center'>
+            <div className='md:grid md:grid-cols-3 md:gap-4 my-8 flex flex-col justify-center items-center'>
                 <div className='flex justify-center items-center'>
                     <img src={gamingHead} alt="Head" className='h-14' />
                 </div>
@@ -13,7 +13,7 @@ const Footer = () => {
                     <h3 className='text-xs text-white px-6'>Visit run567.co for tools and resources to help you stay in control of the way you play.
                     </h3>
                 </div>
-                <div className='mt-2'>
+                <div className=''>
                     <button className='bg-primary text-white text-sm font-semibold hover:bg-red-500 px-7 py-1.5 rounded-md'>Learn more</button>
                 </div>
             </div>
@@ -25,7 +25,7 @@ const Footer = () => {
                     <h3>Popular sports such as Cricket, Tennis, Football, Basketball, Volleyball and many more including Indian card games like Teen Patti and Andar Bahar are also available from various worldwide gaming providers.</h3>
                     <h3>With unlimited markets and odds, run567.co gives players the best gaming experience in the market.</h3>
                 </div>
-                <div className='flex flex-col gap-4 md:px-6'>
+                <div className='flex flex-col gap-4'>
                     <h2 className='text-sm font-bold'>100% Safe & Instant Payments</h2>
                     <h3 className='text-xs'>You can make payments and receive earnings instantly via your UPI ID - so you can be sure that your money is safe and secure. All UPI platforms are accepted.</h3>
                 </div>

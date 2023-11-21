@@ -1,13 +1,13 @@
 import allSportsIcon from '../../assets/allsports.png'
 import eventsIcon from '../../assets/fluentmdl2event12.svg'
 import addIcon from '../../assets/add.svg'
-import { MenuLists } from '../../constants/MenuLists'
+import { MenuList } from '../../constants/menuList.js'
 
 const LeftBar = () => {
 
     return (
         <div className='col-span-2 hidden lg:block'>
-            <div className="h-full border-2 m-2  rounded-lg overflow-y-auto bg-gray-50">
+            <div className="h-screen w-[16%] fixed border-2 m-2  rounded-lg overflow-y-auto bg-gray-50">
                 <ul className=" pt-2">
 
                     <li className='text-sm font-semibold text-red-800'>
@@ -31,7 +31,7 @@ const LeftBar = () => {
                         </button>
                     </li> */}
 
-                    { MenuLists?.map((item) =>
+                    {MenuList?.map((item) =>
                         <li className='font-semibold text-gray-800 text-2xs' key={item?.name}>
                             <a href="#" className="flex items-center p-2 gap-2  rounded-sm hover:bg-red-100 group">
                                 <img src={item?.icon} alt="Allsports" className='w-4' />
