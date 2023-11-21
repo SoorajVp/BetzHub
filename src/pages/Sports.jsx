@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 
 const Sports = () => {
   return (
-    <div className='col-span-12 lg:col-span-7'>
+    <div className='col-span-6 overflow-auto max-h-screen lg:col-span-4'>
       <MainBanner />
       <ContentList />
       <Footer />

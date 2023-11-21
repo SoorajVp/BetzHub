@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom"
 import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import LeftBar from "./components/SideBar/LeftBar"
+import RightBar from "./components/SideBar/RightBar"
 
 function App() {
   const location = useLocation()
@@ -11,9 +12,10 @@ function App() {
         <Navbar />
         {
           location.pathname !== '/' ?
-            <div className="grid grid-cols-12 pt-10">
+            <div className="grid grid-cols-6 pt-10">
               <LeftBar />
               <Outlet />
+              <RightBar />
             </div> :
             <>
               <Outlet />
