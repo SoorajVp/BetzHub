@@ -1,14 +1,12 @@
 import React from 'react'
-import MainBanner from '../components/SportsElements/MainBanner';
-import ContentList from '../components/SportsElements/ContentList';
-import Footer from '../components/Footer/Footer';
+import MainBanner from '../components/Sports/MainBanner';
+import ContentList from '../components/Sports/ContentList';
 
 const Sports = () => {
   return (
-    <div className='col-span-6 overflow-auto max-h-screen lg:col-span-4'>
+    <div>
       <MainBanner />
       <ContentList />
-      <Footer />
     </div>
   )
 }

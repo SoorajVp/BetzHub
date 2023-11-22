@@ -1,14 +1,13 @@
 import vsIcon from '../../assets/tablervs.svg'
 import computerIcon from '../../assets/computerline.svg'
-
 import { StreamData } from '../../constants/streamList'
 
 const StreamTable = () => {
   return (
     <>
     {
-        StreamData?.map((item) =>
-            <div className='grid grid-cols-1 my-1.5 lg:grid-cols-3 bg-white rounded-md'>
+        StreamData?.map((item, index) =>
+            <div key={index} className='grid grid-cols-1 my-1.5 lg:grid-cols-3 bg-white rounded-md'>
 
                 <div className='col-span-2 flex justify-between font-semibold  text-2xs m-2'>
                     <div className='flex'>

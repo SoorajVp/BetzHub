@@ -17,7 +17,7 @@ List any software or tools that need to be installed before running your project
 git clone https://github.com/SoorajVp/Run567-UI.git
 
 # Change into the project directory
-cd your-project
+cd project-name
 
 # Install dependencies
 - npm install

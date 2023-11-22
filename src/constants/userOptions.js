@@ -11,5 +11,9 @@ export const UserOptions = [
     { name: "Withdraw", icon: withdrawIcon, href: '/user' },
     { name: "Transaction History", icon: historyIcon, href: '/user' },
     { name: "Bonus List", icon: bonusIcon, href: '/user' },
+    { name: "Bonus List", icon: bonusIcon, href: '/user' },
+    { name: "Bonus List", icon: bonusIcon, href: '/user' },
+    { name: "Bonus List", icon: bonusIcon, href: '/user' },
+
     { name: "Open Bets", icon: betIcon, href: '/user' },
 ]
