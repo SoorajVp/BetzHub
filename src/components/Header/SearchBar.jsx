@@ -3,7 +3,7 @@ import SearchIcon from '../../assets/search2line.svg';
 const SearchBar = () => {
   return (
       <div className='py-1'>
-          <label className='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'>
+          <label className='mb-2 text-sm font-medium text-gray-900 sr-only '>
               Search
           </label>
           <div className='relative'>
@@ -13,10 +13,9 @@ const SearchBar = () => {
               <input
                   type='search'
                   id='default-search'
-                  className='block w-full p-2 ps-10 text-xs text-gray-300 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-slate-800'
+                  className='block w-full p-2 ps-10 text-xs text-gray-300 border border-gray-300 rounded-lg bg-slate-800'
                   placeholder='Events market, and more'
-                  required
-              />
+                  />
           </div>
       </div>
   )

@@ -6,14 +6,10 @@ import bonusIcon from '../assets/mdifiledocumentboxsearchoutline.svg';
 import betIcon from '../assets/solarnotesoutline.svg';
 
 export const UserOptions = [
-    { name: "User Profile", icon: userIcon, href: '/user' },
-    { name: "Account Statement", icon: statementIcon, href: '/user' },
-    { name: "Withdraw", icon: withdrawIcon, href: '/user' },
-    { name: "Transaction History", icon: historyIcon, href: '/user' },
-    { name: "Bonus List", icon: bonusIcon, href: '/user' },
-    { name: "Bonus List", icon: bonusIcon, href: '/user' },
-    { name: "Bonus List", icon: bonusIcon, href: '/user' },
-    { name: "Bonus List", icon: bonusIcon, href: '/user' },
-
-    { name: "Open Bets", icon: betIcon, href: '/user' },
+    { name: "User Profile", icon: userIcon, href: '/user-profile' },
+    { name: "Account Statement", icon: statementIcon, href: '/account-statement' },
+    { name: "Withdraw", icon: withdrawIcon, href: '/withdraw' },
+    { name: "Transaction History", icon: historyIcon, href: '/transaction-history' },
+    { name: "Bonus List", icon: bonusIcon, href: '/bonus-list' },
+    { name: "Open Bets", icon: betIcon, href: '/open-bets' },
 ]

@@ -5,7 +5,7 @@ import securityIcon from '../../assets/solarlockpasswordlinear.svg'
 
 const Details = () => {
     return (
-        <div className='col-span-1 w-full py-4 bg-gray-200 rounded-md'>
+        <div className='md:col-span-1 w-full py-4 bg-gray-200 rounded-md'>
             <div className='flex justify-center'>
                 <div className='flex flex-col py-3'>
                     <img src={UserDetails?.profilePic} alt="Profile" className="w-16" />
