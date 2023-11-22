@@ -105,8 +105,6 @@ const StatTable = () => {
         <div>Previous &nbsp; Next</div>
 
       </div>
-
-
     </div>
   )
 }

@@ -5,6 +5,7 @@ import ErrorPage from "../components/Error/ErrorPage";
 import Profile from "../pages/Profile";
 import Statement from "../pages/Statement";
 import Layout from "../pages/Layout";
+import Withdraw from "../pages/Withdraw";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
                 element: <Statement />,
             }, {
                 path: '/withdraw',
-                element: <Profile />,
+                element: <Withdraw />,
             }, {
                 path: '/transaction-history',
                 element: <Profile />,
