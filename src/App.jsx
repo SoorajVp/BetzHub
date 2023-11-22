@@ -6,17 +6,21 @@ import RightBar from "./components/SideBar/RightBar"
 
 function App() {
   const location = useLocation()
+  
   return (
     <>
       <div className="font-montserrat bg-black">
+
         <Navbar />
-        {
-          location.pathname !== '/' ?
+
+        { location.pathname !== '/' ?
+
             <div className="grid grid-cols-6 pt-12">
               <LeftBar />
               <Outlet />
               <RightBar />
             </div> :
+
             <>
               <Outlet />
               <Footer />
