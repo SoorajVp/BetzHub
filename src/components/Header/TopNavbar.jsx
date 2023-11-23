@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/5_1.png';
 import WalletIcon from '../../assets/wallet3line.svg';
 import addBoxIcon from '../../assets/addboxline.svg';
@@ -13,6 +13,7 @@ import { UserOptions } from '../../constants/userOptions';
 import SearchBar from './SearchBar';
 import CarouselBar from './CarouselBar';
 import { AuthContext } from '../../contexts/AuthContext';
+import Deposite from '../Modals/Deposit';
 
 const navList = [
     { name: 'Sports', href: '/sports' },
@@ -20,13 +21,20 @@ const navList = [
     { name: 'Inplay', href: '/inplay' },
 ];
 
-const Navbar = () => {
+const TopNavbar = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const location = useLocation();
-    const { isAuth } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const { isAuth,setAuth } = useContext(AuthContext)
+
+    const logoutfn = () => {
+        setAuth(false)
+        setDropdownOpen(false)
+        navigate('/')
+    }
 
     return (
-        <div className='flex z-50 justify-between bg-primary text-white fixed w-full p-1'>
+        <div className='flex z-50 justify-between border-b border-black bg-primary text-white fixed w-full p-1'>
             <div className='flex'>
                 <CarouselBar />
                 <div className=''>
@@ -68,12 +76,14 @@ const Navbar = () => {
                                 <img src={arrowIcon} alt='Wallet' className='w-4 ml-1' />
                             </div>
                         </button>
-                        <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
+                        {/* <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
                             <div className='flex gap-1'>
                                 <img src={addBoxIcon} alt='Wallet' className='w-4' />
                                 <p className='text-xs'>Deposit</p>
                             </div>
-                        </button>
+                        </button> */}
+
+                        <Deposite />
                         <img src={settingIcon} alt='Settings' className='w-6' />
                         <div className='relative'>
                             <img
@@ -99,14 +109,14 @@ const Navbar = () => {
                                     )}
 
                                     <li>
-                                        <Link to='/'
+                                        <div onClick={logoutfn}
                                             className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold' >
                                             <div className='flex'>
 
                                                 <img src={logoutIcon} alt='Settings' className='w-3 mt-0.5 absolute left-3 ' />
                                                 <div className='pl-4'>Sign Out</div>
                                             </div>
-                                        </Link>
+                                        </div>
                                     </li>
 
                                 </ul>
@@ -125,4 +135,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default TopNavbar;

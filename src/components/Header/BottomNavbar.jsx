@@ -1,24 +1,30 @@
+import { Link } from "react-router-dom";
 
 const BottomNavbar = () => {
     return (
-        <nav className="fixed bottom-0 left-0 w-full bg-gray-800 p-4 text-white">
-            <div className="container mx-auto">
+        <nav className="md:hidden fixed bottom-0 z-20 border-t border-primary left-0 w-full bg-gray-200 p-4 text-primary">
+            <div className="container mx-auto text-xs">
                 {/* Navbar content goes here */}
-                <ul className="flex justify-between">
+                <ul className="flex justify-between font-medium">
                     <li>
-                        <a href="#" className="hover:text-gray-300">
-                            Home
-                        </a>
+                        <Link to='/sports' className="hover:bg-primary hover:text-white rounded-lg py-2 px-4">
+                            Sports
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className="hover:text-gray-300">
-                            About
-                        </a>
+                        <Link to='/casino' className="hover:bg-primary hover:text-white rounded-lg py-2 px-4">
+                            Inplay
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className="hover:text-gray-300">
-                            Contact
-                        </a>
+                        <Link to='/inplay' className="hover:bg-primary hover:text-white rounded-lg py-2 px-4">
+                            Casino
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/user-profile' className="hover:bg-primary hover:text-white rounded-lg py-2 px-4">
+                            User
+                        </Link>
                     </li>
                 </ul>
             </div>
