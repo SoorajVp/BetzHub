@@ -29,7 +29,7 @@ const WithdrawForm = () => {
 
           <div className="relative">
             <input
-              type="password"
+              type="tel"
               className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
               id="floatingInput"
               placeholder="name@example.com" />
@@ -39,13 +39,26 @@ const WithdrawForm = () => {
           </div>
         </div>
 
-        <div className='bg-red-50 flex justify-center items-center w-full border border-primary rounded-md'>
-          <div className='flex flex-col text-center'>
-
-            <img src={addIcon} alt="File" className='w-6' />
-            {/* <p>Click Here To Upload Your ID Document</p> */}
-          </div>
+        <div className='bg-red-50 border border-primary rounded-md p-4 text-center'>
+          <label htmlFor="fileInput" className='cursor-pointer'>
+            <img src={addIcon} alt="File" className='w-6 mx-auto' />
+            <p className='text-2xs'>Click Here To Upload Your <br /> ID Document</p>
+          </label>
+          <input type="file" id="fileInput" className='hidden'  />
         </div>
+
+        <div className='bg-red-50 border border-primary rounded-md p-4 text-center'>
+          <label htmlFor="fileInput" className='cursor-pointer'>
+            <img src={addIcon} alt="File" className='w-6 mx-auto' />
+            <p className='text-2xs'>Click Here To Upload Your <br /> ID Document</p>
+          </label>
+          <input type="file" id="fileInput" className='hidden' />
+        </div>
+
+      </div>
+
+      <div className='flex justify-end p-2 w-full'>
+        <button className='px-6 py-2   text-xs bg-primary text-white rounded'> Submit</button>
       </div>
 
 

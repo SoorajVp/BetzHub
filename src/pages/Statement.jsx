@@ -1,4 +1,4 @@
-import StatTable from '../components/Profile/StatTable'
+import StatementList from '../components/Profile/StatementList'
 import TopRow from '../components/Profile/TopRow'
 
 const Statement = () => {
@@ -6,7 +6,7 @@ const Statement = () => {
 
     <div className='m-2 bg-gray-50 rounded-lg'>
       <TopRow />
-      <StatTable />
+      <StatementList />
     </div>
 
   )

@@ -6,6 +6,8 @@ import Profile from "../pages/Profile";
 import Statement from "../pages/Statement";
 import Layout from "../pages/Layout";
 import Withdraw from "../pages/Withdraw";
+import Transactions from "../pages/Transactions";
+import OpenBets from "../pages/OpenBets";
 
 const router = createBrowserRouter([
     {
@@ -30,13 +32,13 @@ const router = createBrowserRouter([
                 element: <Withdraw />,
             }, {
                 path: '/transaction-history',
-                element: <Profile />,
+                element: <Transactions />,
             }, {
                 path: '/bonus-list',
                 element: <Profile />,
             }, {
                 path: '/open-bets',
-                element: <Profile />,
+                element: <OpenBets />,
             }
         ]
     }
