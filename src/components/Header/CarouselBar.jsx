@@ -42,7 +42,7 @@ const CarouselBar = () => {
 
                                 {MenuList?.map((item) =>
                                     <li className='font-semibold text-white text-2xs' key={item?.name}>
-                                        <a href="#" className="flex items-center p-2 gap-2  rounded-sm hover:bg-primary group">
+                                        <a href="#" className="flex items-center p-2 gap-2  rounded-md hover:bg-primary group">
                                             <img src={item?.icon} alt="Allsports" className='w-4' />
                                             <span className="flex-1 whitespace-nowrap">{item?.name}</span>
                                             <img src={addIcon} alt="Events" className='w-4 ' />

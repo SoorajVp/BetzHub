@@ -63,7 +63,7 @@ const LoginButton = () => {
                     <img src={logo} alt="Logo" className='w-16' />
                 </div>
                 <div className='grid md:grid-cols-2 font-montserrat'>
-                    <div className='px-10 space-y-2'>
+                    <div className='px-10 space-y-2  hidden md:block'>
                         <img src={LoginImg} alt="Login" className='w-52' />
                         <h1 className='font-extrabold text-xl italic text-red-500'>100% <span className='text-primary'> FAST</span> Withdrawal</h1>
                         <img src={paymentList} alt="Login" className='h-[24px]' />

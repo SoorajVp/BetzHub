@@ -36,7 +36,9 @@ const TopNavbar = () => {
     return (
         <div className='flex z-50 justify-between border-b border-black bg-primary text-white fixed w-full p-1'>
             <div className='flex'>
-                <CarouselBar />
+                {
+                    location.pathname !== "/" &&  <CarouselBar />
+                }
                 <div className=''>
                     <Link to='/'>
                         <img src={logo} className='h-12 w-12 -mt-1.5' alt='Logo' />

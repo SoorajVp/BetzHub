@@ -9,7 +9,7 @@ const TopRow = () => {
             {
                 UserOptions?.map((item) =>
                     <Link to={item?.href}>
-                        <button className={`border-2 ${location.pathname == item?.href ? 'border-black' : 'border-white ' } flex py-4 bg-red-400 px-8 rounded-md`} >
+                        <button className={`border-2 ${location.pathname == item?.href ? 'border-black' : 'border-white' } flex py-3 bg-red-400 px-8 rounded-md`} >
                             <img src={item?.icon} alt="Profile" className='w-4 -ml-2 mt-0.5' />
                             <h3 className='text-sm text-white px-2 font-semibold whitespace-nowrap'>{item?.name}</h3>
                         </button>

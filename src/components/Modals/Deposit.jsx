@@ -71,7 +71,7 @@ const Deposite = () => {
                 contentLabel="Example Modal"
             >
 
-                <div className="flex justify-center py-3">
+                <div className="flex justify-center m-5">
                     <div className="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                         <input
                             className="relative float-left -ml-[1.5rem] mr-1 mt-1 h-4 w-4 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]"
@@ -79,7 +79,7 @@ const Deposite = () => {
                             name="inlineRadioOptions"
                             id="inlineRadio1"
                             defaultChecked
-                            onClick={setRadioChange}
+                            onClick={() => setRecharge(true)}
                         />
                         <label
                             className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -94,7 +94,7 @@ const Deposite = () => {
                             type="radio"
                             name="inlineRadioOptions"
                             id="inlineRadio2"
-                            onClick={setRadioChange}
+                            onClick={() => setRecharge(false)}
                         />
                         <label
                             className=" inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -122,7 +122,7 @@ export default Deposite;
 
 export const ManualDeposite = () => {
     return (
-        <div className='w-[30rem] h-[25rem]'>
+        <div className=''>
             <div className='flex justify-center pb-4'>
                 <img src={bankIcon} alt="Logo" className='w-auto h-16 border border-primary rounded-md' />
             </div>
@@ -192,7 +192,7 @@ export const ManualDeposite = () => {
 export const RechargeDeposit = () => {
     return (
 
-        <div className='w-[30rem] h-[25rem] p-5 '>
+        <div className=''>
 
             <div className='p-2 bg-red-100 rounded-md'>
                 <div className="relative mb-1">
@@ -210,7 +210,7 @@ export const RechargeDeposit = () => {
             <div className='flex justify-end py-2 w-full'>
                 <button className='px-6 py-2 font-medium  text-xs bg-primary text-white rounded'> Submit</button>
             </div>
-            <div> 
+            <div className='px-14'> 
 
                 <div className='text-center text-xs text-gray-600 py-2'>
                     Accept, process & disbure digital payments for your <br />
