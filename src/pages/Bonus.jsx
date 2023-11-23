@@ -1,13 +1,13 @@
 import TopRow from '../components/Profile/TopRow'
-import BetList from '../components/Profile/BetList'
+import BonusList from '../components/Profile/BonusList'
 
-const OpenBets = () => {
+const Bonus = () => {
     return (
         <div className='m-2 bg-gray-50 rounded-lg'>
             <TopRow />
-            <BetList />
+            <BonusList />
         </div>
     )
 }
 
-export default OpenBets;
+export default Bonus

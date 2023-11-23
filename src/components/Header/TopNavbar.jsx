@@ -25,7 +25,7 @@ const Navbar = () => {
     const location = useLocation();
 
     return (
-        <div className='flex justify-between bg-primary text-white fixed w-full p-1'>
+        <div className='flex z-50 justify-between bg-primary text-white fixed w-full p-1'>
             <div className='flex'>
                 <CarouselBar />
                 <div className=''>
@@ -58,7 +58,7 @@ const Navbar = () => {
             </div>
 
             <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{ fontSize: '12px' }}>
-                { isLoggedIn ? (
+                {isLoggedIn ? (
                     <>
                         <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
                             <div className='flex gap-1'>
@@ -86,7 +86,7 @@ const Navbar = () => {
 
                                     {UserOptions?.map((item, index) =>
                                         <li key={index}>
-                                            <Link to={item?.href} onClick={() => setDropdownOpen(!isDropdownOpen) }
+                                            <Link to={item?.href} onClick={() => setDropdownOpen(!isDropdownOpen)}
                                                 className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold' >
                                                 <div className='flex'>
 

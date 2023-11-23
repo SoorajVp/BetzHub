@@ -3,7 +3,7 @@ import SearchIcon from '../../assets/search2line.svg';
 const Table = ({ heads }) => {
     console.log(heads)
     return (
-        <div className=''>
+        <div className='py-5'>
             <div className='flex justify-between w-full p-1 py-3'>
                 <div className='flex gap-1'>
                     <div className='text-sm font-semibold text-gray-800 pt-0.5'>Show</div>

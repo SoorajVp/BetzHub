@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ErrorPage = () => {
+const NotFound = () => {
     return (
         <div class="min-h-screen flex flex-grow items-center justify-center bg-red-50">
             <div class="rounded-lg bg-white p-8 text-center shadow-xl">
@@ -13,4 +13,4 @@ const ErrorPage = () => {
     )
 }
 
-export default ErrorPage
+export default NotFound

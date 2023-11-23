@@ -1,8 +1,9 @@
-import LeftBar from '../components/SideBar/LeftBar'
-import Footer from '../components/Footer/Footer'
 import { Outlet, useLocation } from 'react-router-dom'
+import LeftBar from '../components/SideBar/LeftBar'
 import RightBar from '../components/SideBar/RightBar'
-import Navbar from '../components/Header/Navbar'
+import Navbar from '../components/Header/TopNavbar'
+import MainFooter from '../components/Footer/MainFooter'
+import MiniFooter from '../components/Footer/MiniFooter'
 
 const Layout = () => {
     const location = useLocation()
@@ -15,14 +16,15 @@ const Layout = () => {
                         <LeftBar />
                         <div className="col-span-6 overflow-auto max-h-screen lg:col-span-4">
                             <Outlet />
-                            <Footer />
+                            <MainFooter />
                         </div>
                         <RightBar />
                     </div>
                     :
                     <div>
                         <Outlet />
-                        <Footer />
+                        <MiniFooter />
+                        <MainFooter />  
                     </div>
             }
         </div>
