@@ -10,6 +10,7 @@ import OpenBets from "../pages/OpenBets";
 import Bonus from "../pages/Bonus";
 import NotFound from "../components/Error/NotFound";
 import NotAvailable from "../components/Error/NotAvailable";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -31,22 +32,22 @@ const router = createBrowserRouter([
                 element: <NotAvailable />,
             }, {
                 path: '/user-profile',
-                element: <Profile />,
+                element: <PrivateRoute><Profile /></PrivateRoute>,
             }, {
                 path: '/account-statement',
-                element: <Statement />,
+                element: <PrivateRoute><Statement /></PrivateRoute>,
             }, {
                 path: '/withdraw',
-                element: <Withdraw />,
+                element: <PrivateRoute><Withdraw /></PrivateRoute>,
             }, {
                 path: '/transaction-history',
-                element: <Transactions />,
+                element: <PrivateRoute><Transactions /></PrivateRoute>,
             }, {
                 path: '/bonus-list',
-                element: <Bonus />,
+                element: <PrivateRoute><Bonus /></PrivateRoute>,
             }, {
                 path: '/open-bets',
-                element: <OpenBets />,
+                element: <PrivateRoute><OpenBets /></PrivateRoute>,
             }
         ]
     }

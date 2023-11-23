@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/5_1.png';
 import WalletIcon from '../../assets/wallet3line.svg';
@@ -12,6 +12,7 @@ import LoginButton from '../Modals/Login';
 import { UserOptions } from '../../constants/userOptions';
 import SearchBar from './SearchBar';
 import CarouselBar from './CarouselBar';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const navList = [
     { name: 'Sports', href: '/sports' },
@@ -20,9 +21,9 @@ const navList = [
 ];
 
 const Navbar = () => {
-    const [isLoggedIn, setLoggedIn] = useState(true);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const location = useLocation();
+    const { isAuth } = useContext(AuthContext)
 
     return (
         <div className='flex z-50 justify-between bg-primary text-white fixed w-full p-1'>
@@ -34,7 +35,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {isLoggedIn ? (
+                {isAuth ? (
                     <div className='hidden md:block'>
                         <SearchBar />
                     </div>
@@ -58,7 +59,7 @@ const Navbar = () => {
             </div>
 
             <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{ fontSize: '12px' }}>
-                {isLoggedIn ? (
+                {isAuth ? (
                     <>
                         <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
                             <div className='flex gap-1'>
