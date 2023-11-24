@@ -1,4 +1,4 @@
-import statIcon from '../../assets/group-191.svg'
+import statIcon from '../../../assets/group-191.svg'
 
 const Statistics = () => {
     return (

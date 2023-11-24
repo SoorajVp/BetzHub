@@ -1,4 +1,4 @@
-import { VideoList } from '../../constants/videoList';
+import { VideoList } from '../../../constants/videoList';
 
 const AdsList = () => {
     return (

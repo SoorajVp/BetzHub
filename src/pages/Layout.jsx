@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import LeftBar from '../components/SideBar/LeftBar';
-import RightBar from '../components/SideBar/RightBar';
+import RightBar from '../components/SideBar/RightBar/RightBar';
 import MainFooter from '../components/Footer/MainFooter';
 import MiniFooter from '../components/Footer/MiniFooter';
 import TopNavbar from '../components/Header/TopNavbar';
 import BottomNavbar from '../components/Header/BottomNavbar';
+import LeftBar from '../components/SideBar/LeftBar/LeftBar';
 
 const Layout = () => {
     const location = useLocation();

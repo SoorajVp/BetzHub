@@ -19,7 +19,7 @@ const MenuRow = () => {
                         <img src={item?.icon} alt="Icon" className='w-6' />
                         <p className='flex-1 whitespace-nowrap text-2xs font-semibold text-gray-700'>{item?.name}</p>
                     </div>
-                    <p className='bg-black text-white text-2xs h-fit px-1.5 -ml-5 mt-1 rounded-sm'> 10</p>
+                    <p className={`${item?.sub?.length === 0 ? 'bg-gray-600' : 'bg-black' }  text-white text-2xs h-fit px-1.5 -ml-5 mt-1 rounded-sm`}>{item?.sub?.length}</p>
                 </div>
             ))}
 

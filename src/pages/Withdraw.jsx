@@ -1,5 +1,5 @@
 import TopRow from '../components/Profile/TopRow'
-import WithdrawForm from '../components/Profile/WithdrawForm'
+import WithdrawForm from '../components/Profile/Withdraw/WithdrawForm'
 
 const Withdraw = () => {
     return (

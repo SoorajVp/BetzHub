@@ -1,7 +1,6 @@
 import SearchIcon from '../../assets/search2line.svg';
 
 const Table = ({ heads }) => {
-    console.log(heads)
     return (
         <div className='py-5'>
             <div className='flex justify-between w-full p-1 py-3'>
@@ -57,9 +56,9 @@ const Table = ({ heads }) => {
 
                 </table>
             </div>
-            <hr class="border-t-2 border-gray-600 mt-3 w-fit" />
+            <hr className="border-t-2 border-gray-600 mt-3 w-fit" />
             <div className='text-center text-sm text-gray-700 py-3'>No data available in table</div>
-            <hr class="border-t-2 border-gray-600 " />
+            <hr className="border-t-2 border-gray-600 " />
 
             <div className='flex justify-between text-2xs py-2'>
                 <div>Showing 0 to 0 of 0 entries</div>

@@ -1,5 +1,5 @@
+import BetList from '../components/Profile/OpenBets/BetList';
 import TopRow from '../components/Profile/TopRow'
-import BetList from '../components/Profile/BetList'
 
 const OpenBets = () => {
     return (

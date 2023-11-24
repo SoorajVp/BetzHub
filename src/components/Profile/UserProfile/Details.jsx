@@ -1,7 +1,7 @@
-import { UserDetails } from "../../constants/userData";
-import mobileIcon from '../../assets/uilphone.svg'
-import mailIcon from '../../assets/fluentmail20regular.svg'
-import securityIcon from '../../assets/solarlockpasswordlinear.svg'
+import { UserDetails } from "../../../constants/userData";
+import mobileIcon from '../../../assets/uilphone.svg'
+import mailIcon from '../../../assets/fluentmail20regular.svg'
+import securityIcon from '../../../assets/solarlockpasswordlinear.svg'
 
 const Details = () => {
     return (

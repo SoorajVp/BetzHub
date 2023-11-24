@@ -7,7 +7,7 @@ const StreamTable = () => {
     <>
     {
         StreamData?.map((item, index) =>
-            <div key={index} className='grid grid-cols-1 my-1.5 lg:grid-cols-3 bg-white rounded-md'>
+            <div key={index} className='grid grid-cols-1 my-1.5 lg:grid-cols-3 bg-white hover:bg-red-50 border border-white hover:border-primary transition duration-300 rounded-md'>
 
                 <div className='col-span-2 flex justify-between font-semibold  text-2xs m-2'>
                     <div className='flex'>

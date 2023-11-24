@@ -1,5 +1,5 @@
 import TopRow from '../components/Profile/TopRow'
-import TransactionList from '../components/Profile/TransactionList'
+import TransactionList from '../components/Profile/Transactions/TransactionList'
 
 const Transactions = () => {
   return (

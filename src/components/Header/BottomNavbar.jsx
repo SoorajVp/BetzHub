@@ -23,7 +23,7 @@ const BottomNavbar = () => {
                     </li>
                     <li>
                         <Link to='/user-profile' className="hover:bg-primary transition duration-300 hover:text-white rounded-lg py-2 px-4">
-                            User
+                            Account
                         </Link>
                     </li>
                 </ul>

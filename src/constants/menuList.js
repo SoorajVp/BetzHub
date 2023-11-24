@@ -16,15 +16,42 @@ export const MenuList = [
     {
         name: "Cricket",
         icon: CricketIcon,
-        sub: []
+        sub: [
+            'Cricket World Cup',
+            'Indian Premier League (IPL)',
+            'Big Bash League (BBL)',
+            'T20 World Cup',
+            'Ashes Series',
+            'Asia Cup',
+            'Test Match'
+            // Add more tournament names as needed
+        ]
     }, {
         name: "Tennis",
         icon: TennisIcon,
-        sub: []
+        sub: [
+            'Wimbledon',
+            'US Open',
+            'French Open',
+            'Australian Open',
+            'ATP Finals',
+            'Davis Cup',
+            // Add more tournament names as needed
+        ]
     }, {
         name: "Soccer",
         icon: SoccerIcon,
-        sub: []
+        sub: [
+            'FIFA World Cup',
+            'UEFA Champions League',
+            'Premier League',
+            'La Liga',
+            'Bundesliga',
+            'Serie A',
+            'Copa America',
+            'AFC Asian Cup',
+            // Add more tournament names as needed
+        ]
     }, {
         name: "Politics",
         icon: PoliticsIcon,
@@ -44,7 +71,14 @@ export const MenuList = [
     }, {
         name: "Boxing",
         icon: boxingIcon,
-        sub: []
+        sub: [
+            'Olympic Boxing Tournament',
+            'World Boxing Super Series',
+            'WBC World Championship',
+            'IBF World Championship',
+            'WBO World Championship',
+            // Add more tournament names as needed
+        ]
     }, {
         name: "Mixed Martial Arts",
         icon: MartialIcon,
@@ -60,7 +94,13 @@ export const MenuList = [
     }, {
         name: "Hockey",
         icon: HockeyIcon,
-        sub: []
+        sub: [
+            'IIHF World Championship',
+            'Stanley Cup Playoffs',
+            'Olympic Ice Hockey Tournament',
+            'Champions Hockey League',
+        // Add more tournament names as needed
+        ]
     }, {
         name: "Kabaddi",
         icon: KabbadiIcon,

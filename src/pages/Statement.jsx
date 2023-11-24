@@ -1,4 +1,4 @@
-import StatementList from '../components/Profile/StatementList'
+import StatementList from '../components/Profile/Statements/StatementList'
 import TopRow from '../components/Profile/TopRow'
 
 const Statement = () => {

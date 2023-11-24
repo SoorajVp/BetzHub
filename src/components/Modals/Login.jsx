@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import logo from '../../assets/5_1.png'
 import LoginImg from '../../assets/5.png'
@@ -76,7 +76,7 @@ const LoginButton = () => {
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="" />
-                            <label  htmlFor="floatingInput"
+                            <label htmlFor="floatingInput"
                                 className="pointer-events-none text-xs absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-4 text-red-500 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
                             >Enter your username</label>
                         </div>
@@ -107,7 +107,7 @@ const LoginButton = () => {
 
                         <div className="relative mb-3">
                             <button className='py-2 border-white hover:border-primary border rounded-md text-white font-bold bg-gradient-to-r from-red-200 to-primary w-full'
-                            onClick={authenication}>SignIn</button>
+                                onClick={authenication}>SignIn</button>
                         </div>
 
                         <div className="relative mb-2 text-xs flex justify-center">
@@ -115,7 +115,7 @@ const LoginButton = () => {
                         </div>
 
                         <div className="relative mb-3 text-xs flex justify-center gap-2">
-                            <img src={whatsapp} alt="Whatsapp" className='w-7'  />
+                            <img src={whatsapp} alt="Whatsapp" className='w-7' />
                             <img src={twitter} alt="Whatsapp" className='w-7' />
                         </div>
 

@@ -1,4 +1,4 @@
-import promoImg from '../../assets/screenshot-4-1@2x.png'
+import promoImg from '../../../assets/screenshot-4-1@2x.png'
 import AdsList from './AdsList'
 
 const RightBar = () => {
@@ -14,7 +14,7 @@ const RightBar = () => {
       </div>
 
       <AdsList />
-      
+
     </div>
   )
 }

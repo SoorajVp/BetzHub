@@ -1,8 +1,6 @@
 import Details from "./Details"
 import Statistics from "./Statistics"
 
-
-
 const About = () => {
   return (
     <div className='grid md:grid-cols-3 p-2 pb-5 gap-2'>

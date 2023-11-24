@@ -1,5 +1,5 @@
+import BonusList from '../components/Profile/Bonus/BonusList'
 import TopRow from '../components/Profile/TopRow'
-import BonusList from '../components/Profile/BonusList'
 
 const Bonus = () => {
     return (

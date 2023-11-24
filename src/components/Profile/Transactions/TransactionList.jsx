@@ -1,5 +1,5 @@
 
-import Table from './Table'
+import Table from '../Table'
 
 const TransactionList = () => {
     const tableHeads = [

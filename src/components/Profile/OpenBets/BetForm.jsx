@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BetForm = () => {
   return (
     <div className='space-y-2'>

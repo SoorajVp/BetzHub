@@ -1,5 +1,5 @@
 import BetForm from './BetForm'
-import Table from './Table'
+import Table from '../Table'
 
 const BetList = () => {
     const tableHeads = [

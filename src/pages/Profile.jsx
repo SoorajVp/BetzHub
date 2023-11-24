@@ -1,8 +1,5 @@
-import { useContext, useLayoutEffect } from 'react'
 import TopRow from '../components/Profile/TopRow'
-import About from '../components/Profile/About'
-import { AuthContext } from '../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import About from '../components/Profile/UserProfile/About'
 
 const Profile = () => {
 
