@@ -1,11 +1,11 @@
 import React from 'react'
-import MainBanner from '../components/Sports/MainBanner';
+import SportsBanner from '../components/Banner/SportsBanner';
 import ContentList from '../components/Sports/ContentList';
 
 const Sports = () => {
   return (
     <div>
-      <MainBanner />
+      <SportsBanner />
       <ContentList />
     </div>
   )

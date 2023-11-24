@@ -13,20 +13,19 @@ const Details = () => {
                 </div>
             </div>
             <div>
-
                 <div className="flex w-full justify-center pt-1">
                     <div className="flex gap-2 text-xs font-medium">
-                        <img src={mobileIcon} alt="Mobile" className="w-4" /> {UserDetails?.mobile}
+                        <img src={mobileIcon} alt="Mobile" className="w-4 -ml-6" /> {UserDetails?.mobile}
                     </div>
                 </div>
                 <div className="flex w-full justify-center pt-1">
                     <div className="flex gap-2 text-xs font-medium">
-                        <img src={mailIcon} alt="Mobile" className="w-4" />{UserDetails?.email}
+                        <img src={mailIcon} alt="Mobile" className="w-4 -ml-6" />{UserDetails?.email}
                     </div>
                 </div>
                 <div className="flex w-full justify-center pt-1">
                     <div className="flex gap-2 text-xs font-medium">
-                        <img src={securityIcon} alt="Mobile" className="w-4" /> Change Password
+                        <img src={securityIcon} alt="Mobile" className="w-4 -ml-6" /> Change Password
                     </div>
                 </div>
             </div>

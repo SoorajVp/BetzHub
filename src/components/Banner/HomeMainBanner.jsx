@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import bannerImg from '../../assets/premium-photo---3d-rendering-online-gambling-1@2x.png'
 import React from 'react'
 
-const HomeBanner = () => {
+const HomeMainBanner = () => {
   return (
     <div>
 
@@ -24,4 +24,4 @@ const HomeBanner = () => {
   )
 }
 
-export default HomeBanner
+export default HomeMainBanner

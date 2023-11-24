@@ -1,6 +1,6 @@
 import BannerImg from '../../assets/rectangle-12@2x.png'
 
-const MainBanner = () => {
+const SportsBanner = () => {
   return (
     <div className='w-full lg:p-2'>
         <img src={BannerImg} alt="SportsBanner" className='w-full' />
@@ -8,4 +8,4 @@ const MainBanner = () => {
   )
 }
 
-export default MainBanner
+export default SportsBanner
