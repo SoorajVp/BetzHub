@@ -3,8 +3,9 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 module.exports.userVerification = (req, res, next) => {
-  const token = req.headers.authorization;
-  console.log(token);
+  
+  const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+  console.log("token is here - ", token);
   if (!token) {
     return res
       .status(401)

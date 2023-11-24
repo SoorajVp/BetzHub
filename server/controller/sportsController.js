@@ -37,7 +37,7 @@ const fetchDataWithCache = async (cacheKey, apiUrl, dataSaver) => {
 
 module.exports.GetAllSports = async (req, res) => {
   const cacheKey = "sportsData";
-  const apiUrl = "http://localhost:5001/getSports";
+  const apiUrl = "http://localhost:4000/getSports";
   const result = await fetchDataWithCache(cacheKey, apiUrl, SaveSportsData);
   res.status(201).json(result);
 };

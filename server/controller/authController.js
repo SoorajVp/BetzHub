@@ -12,8 +12,9 @@ module.exports.Signup = async (req, res, next) => {
   };
   try {
     const existingUser = await User.findOne({ username: userDetails.username });
+    console.log(existingUser)
     if (existingUser) {
-      throw new CustomError(400, "Bad Request: User already exists");
+      throw new CustomError(400, "User already exists");
     }
 
     const newUser = new User(userDetails);
@@ -50,9 +51,8 @@ module.exports.Login = async (req, res, next) => {
     if (!passwordMatch) {
       throw new CustomError(401, "Unauthorized: Incorrect Password");
     }
-
     const token = createSecretToken(user._id);
-    res.status(201).json({ status: true, token });
+    res.status(201).json({ status: true, token, user });
   } catch (error) {
     console.log(error);
     next(error);

@@ -1,12 +1,15 @@
+
+
 import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
-import logo from '../../assets/5_1.png'
-import LoginImg from '../../assets/5.png'
-import paymentList from '../../assets/subpayment.png'
-import twitter from '../../assets/twitterIcon.svg'
-import whatsapp from '../../assets/whatsappIcon.svg'
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { userRequest } from '../../services/userService';
+import logo from '../../assets/5_1.png';
+import LoginImg from '../../assets/5.png';
+import paymentList from '../../assets/subpayment.png';
+import twitter from '../../assets/twitterIcon.svg';
+import whatsapp from '../../assets/whatsappIcon.svg';
 
 const customStyles = {
     content: {
@@ -22,42 +25,55 @@ const customStyles = {
 };
 
 const RegisterButton = () => {
-    let subtitle;
     const [modalIsOpen, setIsOpen] = useState(false);
-    const { setAuth } = useContext(AuthContext)
-    const navigate = useNavigate()
+    const [username, setUserName] = useState('');
+    const [phonenumber, setPhoneNumber] = useState('');
+    const [password, setPassword] = useState('');
 
-    function openModal() {
+    const { setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const openModal = () => {
         setIsOpen(true);
-    }
+    };
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
-    }
-
-    function closeModal() {
+    const closeModal = () => {
         setIsOpen(false);
-    }
-
-    const authenication = () => {
-        setAuth(true)
-        navigate("/sports")
-    }
+    };
+    const authentication = async () => {
+        if (!username || !phonenumber || !password) {
+            alert('All fields are required');
+        } else {
+            const response = await userRequest.register({ username, phonenumber, password });
+            console.log('Response data - ', response);
+            setUserName('')
+            setPhoneNumber('')
+            setPassword('')
+            if (response.status) {
+                alert("User registered succesfully")
+                setIsOpen(false);
+                navigate('/')
+            } else {
+                alert(response?.message)
+            }
+        }
+    };
 
     return (
         <div>
-            <button className='bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-2 md:px-3 py-1.5 font-bold rounded-md' onClick={openModal}>REGISTER</button>
-            {/* <button onClick={openModal}>Open Modal</button> */}
+            <button className="bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-3 py-1.5 font-bold rounded-md" onClick={openModal}>
+                REGISTER
+            </button>
+
             <Modal
                 isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
+                onAfterOpen={() => { }}
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <div className='flex justify-center pb-4'>
-                    <img src={logo} alt="Logo" className='w-16' />
+                <div className="flex justify-center pb-4">
+                    <img src={logo} alt="Logo" className="w-16" />
                 </div>
                 <div className='grid md:grid-cols-2 font-montserrat'>
                     <div className='px-12 space-y-3 -mt-6 hidden md:block'>
@@ -68,8 +84,8 @@ const RegisterButton = () => {
                     <div className=''>
 
                         <div className="relative mb-2">
-                            <input
-                                type="text"
+                            <input onChange={(e) => setUserName(e.target.value)}
+                                type="text" value={username}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="" />
@@ -79,8 +95,8 @@ const RegisterButton = () => {
                         </div>
 
                         <div className="relative mb-2">
-                            <input
-                                type="password"
+                            <input onChange={(e) => setPhoneNumber(e.target.value)}
+                                type="text" value={phonenumber}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="name@example.com" />
@@ -90,8 +106,8 @@ const RegisterButton = () => {
                         </div>
 
                         <div className="relative mb-1">
-                            <input
-                                type="password"
+                            <input onChange={(e) => setPassword(e.target.value)}
+                                type="password" value={password}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="name@example.com" />
@@ -115,7 +131,7 @@ const RegisterButton = () => {
 
                         <div className="relative mb-3">
                             <button className='py-2 border-white hover:border-primary border rounded-md text-white bg-gradient-to-r from-red-200 to-primary w-full'
-                            onClick={authenication} >Register</button>
+                                onClick={authentication} >Register</button>
                         </div>
 
                         <div className="relative mb-2 text-xs flex justify-center">
@@ -129,11 +145,9 @@ const RegisterButton = () => {
 
                     </div>
                 </div>
-                {/* <button onClick={closeModal}>close</button> */}
-
             </Modal>
         </div>
     );
-}
+};
 
 export default RegisterButton;

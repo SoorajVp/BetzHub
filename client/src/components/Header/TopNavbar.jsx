@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/5_1.png';
 import WalletIcon from '../../assets/wallet3line.svg';
@@ -25,10 +25,18 @@ const TopNavbar = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate()
-    const { isAuth,setAuth } = useContext(AuthContext)
+    const { user, setUser } = useContext(AuthContext)
+
+    console.log("USER STATE - ", user )
+    useEffect(()=> {
+        const userData = localStorage.getItem('betzhubUser');
+        setUser(JSON.parse(userData))
+    }, [navigate])
 
     const logoutfn = () => {
-        setAuth(false)
+        setUser(false)
+        localStorage.removeItem('betzhubToken')
+        localStorage.removeItem('betzhubUser')
         setDropdownOpen(false)
         navigate('/')
     }
@@ -45,7 +53,7 @@ const TopNavbar = () => {
                     </Link>
                 </div>
 
-                {isAuth ? (
+                {user ? (
                     <div className='hidden md:block'>
                         <SearchBar />
                     </div>
@@ -69,7 +77,7 @@ const TopNavbar = () => {
             </div>
 
             <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{ fontSize: '12px' }}>
-                {isAuth ? (
+                {user ? (
                     <>
                         <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
                             <div className='flex gap-1'>
@@ -78,6 +86,7 @@ const TopNavbar = () => {
                                 <img src={arrowIcon} alt='Wallet' className='w-4 ml-1' />
                             </div>
                         </button>
+
                         {/* <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
                             <div className='flex gap-1'>
                                 <img src={addBoxIcon} alt='Wallet' className='w-4' />
@@ -114,7 +123,6 @@ const TopNavbar = () => {
                                         <div onClick={logoutfn}
                                             className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold' >
                                             <div className='flex'>
-
                                                 <img src={logoutIcon} alt='Settings' className='w-3 mt-0.5 absolute left-3 ' />
                                                 <div className='pl-4'>Sign Out</div>
                                             </div>

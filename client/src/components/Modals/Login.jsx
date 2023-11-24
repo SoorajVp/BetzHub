@@ -7,6 +7,7 @@ import twitter from '../../assets/twitterIcon.svg'
 import whatsapp from '../../assets/whatsappIcon.svg'
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { userRequest } from '../../services/userService';
 
 const customStyles = {
     content: {
@@ -24,14 +25,16 @@ const customStyles = {
 
 const LoginButton = () => {
     let subtitle;
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
-    const { setAuth } = useContext(AuthContext)
+    const { setUser } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     function openModal() {
-        setIsOpen(true);
+        setLoginModal(true);
     }
 
     function afterOpenModal() {
@@ -40,20 +43,36 @@ const LoginButton = () => {
     }
 
     function closeModal() {
-        setIsOpen(false);
+        setLoginModal(false);
     }
 
-    const authenication = () => {
-        setAuth(true)
-        navigate("/sports")
-    }
+    const authentication = async () => {
+        if (!username || !password) {
+            alert('All fields are required');
+        } else {
+            const response = await userRequest.login({ username, password });
+            console.log('Response data - ', response);
+            setUserName('')
+            setPassword('')
+            if (response.status) {
+                setUser(response?.user)
+                localStorage.setItem('betzhubToken', response?.token)
+                localStorage.setItem('betzhubUser', JSON.stringify(response?.user))
+                alert("Success! You've been logged in successfully")
+                setLoginModal(false)
+                navigate('/sports')
+            } else {
+                alert(response?.message)
+            }
+        }
+    };
 
     return (
         <div>
             <button className='bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-2 md:px-3 py-1.5 font-bold rounded' onClick={openModal}>SIGN IN</button>
             {/* <button onClick={openModal}>Open Modal</button> */}
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={loginModal}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
@@ -71,8 +90,8 @@ const LoginButton = () => {
                     <div className=''>
 
                         <div className="relative mb-2">
-                            <input
-                                type="text"
+                            <input onChange={(e) => setUserName(e.target.value)}
+                                type="text" value={username}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="" />
@@ -82,8 +101,8 @@ const LoginButton = () => {
                         </div>
 
                         <div className="relative mb-1">
-                            <input
-                                type="password"
+                            <input onChange={(e) => setPassword(e.target.value)}
+                                type="password" value={password}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="name@example.com" />
@@ -107,7 +126,7 @@ const LoginButton = () => {
 
                         <div className="relative mb-3">
                             <button className='py-2 border-white hover:border-primary border rounded-md text-white font-bold bg-gradient-to-r from-red-200 to-primary w-full'
-                                onClick={authenication}>SignIn</button>
+                                onClick={authentication}>SignIn</button>
                         </div>
 
                         <div className="relative mb-2 text-xs flex justify-center">

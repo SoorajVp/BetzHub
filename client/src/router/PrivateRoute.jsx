@@ -1,13 +1,14 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 
 const PrivateRoute = ({children}) => {
     const navigate = useNavigate();
-    const { isAuth } = useContext(AuthContext)
+    const [user, setUser] = useState(localStorage.getItem('betzhubUser'))
+    // const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        if (!isAuth) {
+        if (!user) {
             navigate('/');
         }
     },[])

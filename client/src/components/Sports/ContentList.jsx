@@ -2,6 +2,16 @@ import MenuRow from './MenuRow.jsx'
 import StreamTable from './StreamTable.jsx'
 
 const ContentList = () => {
+
+  // useEffect(() => {
+  //   fetchSportsData()
+  // }, [])
+
+  // const fetchSportsData = async() => {
+  //   const response = await userRequest.getSportsData();
+  //   console.log("Last console - ",response)
+  // }
+ 
   return (
     <div className=' lg:px-2 pt-2 lg:pt-0'>
 

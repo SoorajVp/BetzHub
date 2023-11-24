@@ -1,4 +1,4 @@
-import { useContext, useLayoutEffect } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import HomeMiniBanner from '../components/Banner/HomeMiniBanner';
 import ButtonsRaw from '../components/Buttons/ButtonsRaw';
 import HomeMainCards from '../components/Cards/HomeMainCard';
@@ -9,11 +9,13 @@ import HomeMainBanner from '../components/Banner/HomeMainBanner';
 
 const Home = () => {
 
-  const { isAuth } =useContext(AuthContext)
+  // const { user } =useContext(AuthContext)
+  const [user, setUser] = useState()
   
   const navigate = useNavigate()
-  useLayoutEffect(() => {
-    isAuth && navigate('/sports')
+  useEffect(() => {
+    setUser(localStorage.getItem('betzhubUser'))
+    user && navigate('/sports')
   })
 
   return (
