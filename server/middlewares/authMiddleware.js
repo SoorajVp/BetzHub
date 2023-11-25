@@ -1,10 +1,11 @@
 require("dotenv").config();
 const User = require("../models/User");
+const Admin = require("../models/admin")
 const jwt = require("jsonwebtoken");
+
 
 module.exports.userVerification = (req, res, next) => {
   const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
-  console.log("token is here - ", token);
   if (!token) {
     return res
       .status(401)
@@ -17,6 +18,26 @@ module.exports.userVerification = (req, res, next) => {
       const user = await User.findById(data.id);
       if (user) {
         req.user = user;
+        next();
+      }
+    }
+  });
+};
+
+module.exports.adminVerification = (req, res, next) => {
+  const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+  if (!token) {
+    return res
+      .status(401)
+      .json({ status: false, message: "Authorization token not provided" });
+  }
+  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+    if (err) {
+      return res.status(403).json({ status: false, message: "Invalid token" });
+    } else {
+      const admin = await Admin.findById(data.id);
+      if (admin) {
+        req.admin = admin;
         next();
       }
     }

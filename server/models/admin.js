@@ -8,7 +8,7 @@ const adminSchema = Schema({
     password: String,
     role: {
         type: String,
-        enum: ['super', 'partner', 'local']
+        enum: ['super', 'partner', 'admin']
     },
     isBlocked: {
         type: Boolean,

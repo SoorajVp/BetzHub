@@ -14,7 +14,8 @@ const Home = () => {
   
   const navigate = useNavigate()
   useEffect(() => {
-    setUser(localStorage.getItem('betzhubUser'))
+    const userData = localStorage.getItem('betzhubUser');
+    setUser(JSON.parse(userData))
     user && navigate('/sports')
   })
 

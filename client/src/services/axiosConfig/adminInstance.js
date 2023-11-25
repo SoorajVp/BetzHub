@@ -7,7 +7,7 @@ const adminInstance = axios.create({
 // Request interceptor to add headers
 adminInstance.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('betzhubToken');
+        const token = localStorage.getItem('betzhubAdminToken');
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }

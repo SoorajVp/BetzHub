@@ -25,6 +25,10 @@ app.use(express.json());
 
 require("./routes/authRoutes")(app);
 require("./routes/sportsRoutes")(app);
+require("./routes/superAdminRoutes")(app);
+require("./routes/partnerAdminRoutes")(app);
+
+
 
 app.listen(PORT, (req, res) => {
   console.log("Server running on port => ", PORT);

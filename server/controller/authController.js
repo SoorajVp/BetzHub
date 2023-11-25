@@ -15,17 +15,14 @@ module.exports.Signup = async (req, res, next) => {
   };
   try {
     const existingUser = await User.findOne({ username: userDetails.username });
-    console.log(existingUser)
     if (existingUser) {
       throw new CustomError(400, "User already exists");
     }
-
     const newUser = new User(userDetails);
     await newUser.save();
     const token = createSecretToken(newUser._id);
     res.status(201).json({ status: true, token });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
