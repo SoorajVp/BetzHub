@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
+const adminInstance = axios.create({
     baseURL: 'http://localhost:4000/', // Set your API base URL here
 });
 
 // Request interceptor to add headers
-axiosInstance.interceptors.request.use(
+adminInstance.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('betzhubToken');
         if (token) {
@@ -18,4 +18,4 @@ axiosInstance.interceptors.request.use(
     }
 );
 
-export default axiosInstance;
+export default adminInstance;

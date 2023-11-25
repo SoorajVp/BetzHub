@@ -6,7 +6,15 @@ const { Schema } = mongoose;
 const userSchema = Schema({
   username: String,
   password: String,
-  phonenumber: String,
+  FromPA: {
+    type: Boolean,
+    default: false,
+  },
+  isBlocked: {
+    type: Boolean,
+    default: false,
+  },
+  phonenumber: Number,
 });
 
 userSchema.pre("save", async function (next) {

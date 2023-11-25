@@ -11,6 +11,8 @@ import Bonus from "../pages/Bonus";
 import NotFound from "../components/Error/NotFound";
 import NotAvailable from "../components/Error/NotAvailable";
 import PrivateRoute from "./PrivateRoute";
+import SuperAdmin from "../components/Admin/Login/SuperAdmin";
+import Dashboard from "../pages/Admin/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +52,12 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><OpenBets /></PrivateRoute>,
             }
         ]
+    }, {
+        path: '/super-admin/login',
+        element: <SuperAdmin />
+    }, {
+        path: '/admin',
+        element: <Dashboard  />
     }
 ])
 

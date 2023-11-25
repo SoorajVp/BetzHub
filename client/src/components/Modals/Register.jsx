@@ -45,7 +45,6 @@ const RegisterButton = () => {
             alert('All fields are required');
         } else {
             const response = await userRequest.register({ username, phonenumber, password });
-            console.log('Response data - ', response);
             setUserName('')
             setPhoneNumber('')
             setPassword('')
@@ -96,7 +95,7 @@ const RegisterButton = () => {
 
                         <div className="relative mb-2">
                             <input onChange={(e) => setPhoneNumber(e.target.value)}
-                                type="text" value={phonenumber}
+                                type="number" value={phonenumber}
                                 className="peer m-0 block h-[58px] w-full rounded-md border border-solid border-red-400 bg-red-50 bg-clip-padding p-3 text-sm leading-tight text-gray-800 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                 id="floatingInput"
                                 placeholder="name@example.com" />

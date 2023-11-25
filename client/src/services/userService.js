@@ -1,10 +1,10 @@
-import axiosInstance from "./axiosConfig";
+import userInstance from "./axiosConfig/userInstance";
 
 export const userRequest = {
 
     register: async (userData) => {
         try {
-            const response = await axiosInstance.post('/auth/register', userData);
+            const response = await userInstance.post('/auth/register', userData);
             console.log(response)
             return response.data;
         } catch (error) {
@@ -19,7 +19,7 @@ export const userRequest = {
 
     login: async (userData) => {
         try {
-            const response = await axiosInstance.post('/auth/login', userData);
+            const response = await userInstance.post('/auth/login', userData);
             console.log(response)
             return response.data;
         } catch (error) {
@@ -34,7 +34,7 @@ export const userRequest = {
 
     getSportsData: async () => {
         try {
-            const response = await axiosInstance.get('/getSports');
+            const response = await userInstance.get('/getSports');
             console.log(response)
             return response.data;
         } catch (error) {
