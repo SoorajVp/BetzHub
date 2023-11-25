@@ -25,6 +25,7 @@ app.use(express.json());
 
 require("./routes/authRoutes")(app);
 require("./routes/sportsRoutes")(app);
+require("./routes/adminRoutes")(app);
 require("./routes/superAdminRoutes")(app);
 require("./routes/partnerAdminRoutes")(app);
 

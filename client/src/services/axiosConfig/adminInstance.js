@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const adminInstance = axios.create({
-    baseURL: 'http://localhost:4000/', // Set your API base URL here
+    baseURL: 'http://localhost:3000/', // Set your API base URL here
 });
 
 // Request interceptor to add headers

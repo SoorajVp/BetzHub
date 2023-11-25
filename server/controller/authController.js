@@ -42,6 +42,9 @@ module.exports.Login = async (req, res, next) => {
     if (!user) {
       throw new CustomError(401, "Unauthorizzed: username does not exist");
     }
+    if (user.isBlocked) {
+      throw new CustomError(406, "Account action blocked");
+    }
     const passwordMatch = await bcrypt.compare(
       userDetails.password,
       user.password
@@ -65,25 +68,90 @@ module.exports.SuperAdminLogin = async (req, res, next) => {
     adminName: req.body.adminName,
     password: req.body.password,
   };
-
   try {
     const admin = await Admin.findOne({ adminName: userDetails.adminName });
     if (!admin) {
       throw new CustomError(401, "Unauthorizzed: username does not exist");
     }
+    if (admin.isBlocked) {
+      throw new CustomError(406, "Account action blocked");
+    }
+    console.log(admin)
+    if (admin.role !== "super") {
+      throw new CustomError(401, "Unauthorized: This is not a super admin");
+    }
     const passwordMatch = await bcrypt.compare(
       userDetails.password,
       admin.password
     );
-
     if (!passwordMatch) {
       throw new CustomError(401, "Unauthorized: Incorrect Password");
     }
     const token = createSecretToken(admin._id);
     res.status(201).json({ status: true, token, admin });
   } catch (error) {
-    console.log(error);
     next(error);
   }
+};
 
+
+module.exports.PartnerAdminLogin = async (req, res, next) => {
+  const userDetails = {
+    adminName: req.body.adminName,
+    password: req.body.password,
+  };
+  try {
+    const admin = await Admin.findOne({ adminName: userDetails.adminName });
+    if (!admin) {
+      throw new CustomError(401, "Unauthorizzed: username does not exist");
+    }
+    if (admin.isBlocked) {
+      throw new CustomError(406, "Account action blocked");
+    }
+    if (admin.role !== "partner") {
+      throw new CustomError(401, "Unauthorized: This is not a super admin");
+    }
+    const passwordMatch = await bcrypt.compare(
+      userDetails.password,
+      admin.password
+    );
+    if (!passwordMatch) {
+      throw new CustomError(401, "Unauthorized: Incorrect Password");
+    }
+    const token = createSecretToken(admin._id);
+    res.status(201).json({ status: true, token, admin });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+module.exports.AdminLogin = async (req, res, next) => {
+  const userDetails = {
+    adminName: req.body.adminName,
+    password: req.body.password,
+  };
+  try {
+    const admin = await Admin.findOne({ adminName: userDetails.adminName });
+    if (!admin) {
+      throw new CustomError(401, "Unauthorizzed: username does not exist");
+    }
+    if (admin.isBlocked) {
+      throw new CustomError(406, "Account action blocked");
+    }
+    if (admin.role !== "admin") {
+      throw new CustomError(401, "Unauthorized: This is not a super admin");
+    }
+    const passwordMatch = await bcrypt.compare(
+      userDetails.password,
+      admin.password
+    );
+    if (!passwordMatch) {
+      throw new CustomError(401, "Unauthorized: Incorrect Password");
+    }
+    const token = createSecretToken(admin._id);
+    res.status(201).json({ status: true, token, admin });
+  } catch (error) {
+    next(error);
+  }
 };

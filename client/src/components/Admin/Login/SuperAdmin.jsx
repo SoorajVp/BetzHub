@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { adminRequest } from '../../../services/adminService';
 import { AdminContext } from '../../../contexts/AdminContext';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,14 @@ const SuperAdmin = () => {
     const [password, setPassword] = useState('');
     const { setAdmin } = useContext(AdminContext)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (localStorage.getItem("betzhubAdminToken")) {
+            const adminData = localStorage.getItem('betzhubAdmin');
+            setAdmin(JSON.parse(adminData))
+            navigate('/admin')
+        }
+    }, [])
 
     const authentication = async () => {
         if (!adminName || !password) {

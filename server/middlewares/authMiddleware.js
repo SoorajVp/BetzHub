@@ -17,6 +17,9 @@ module.exports.userVerification = (req, res, next) => {
     } else {
       const user = await User.findById(data.id);
       if (user) {
+        if (user.isBlocked) {
+          return res.status(406).json({ status: false, message: "Action blocked" });
+        }
         req.user = user;
         next();
       }
@@ -37,6 +40,9 @@ module.exports.adminVerification = (req, res, next) => {
     } else {
       const admin = await Admin.findById(data.id);
       if (admin) {
+        if (admin.isBlocked) {
+          return res.status(406).json({ status: false, message: "Action blocked" });
+        }
         req.admin = admin;
         next();
       }

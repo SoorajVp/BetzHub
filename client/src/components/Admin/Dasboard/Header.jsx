@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from "../../../contexts/AdminContext";
 import CreateAdmin from "../Modals/CreateAdmin";
+import CreateUser from "../Modals/CreateUser";
 
 const Header = () => {
   const { admin, setAdmin } = useContext(AdminContext);
@@ -12,7 +13,7 @@ const Header = () => {
       const adminData = localStorage.getItem('betzhubAdmin');
       setAdmin(JSON.parse(adminData))
     } else {
-      navigate('/super-admin/login')
+      navigate('/admin/login')
     }
   }, [navigate])
 
@@ -20,7 +21,7 @@ const Header = () => {
     localStorage.removeItem("betzhubAdminToken")
     localStorage.removeItem("betzhubAdmin")
     setAdmin(false);
-    navigate("/super-admin/login")
+    navigate("/admin/login")
   }
 
   return (
@@ -28,7 +29,7 @@ const Header = () => {
       <nav className="border-gray-200 text-white px-4 lg:px-6 py-2.5 bg-primary">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
-            {admin?.role == "super" && <span className="self-center text-xl font-semibold whitespace-nowrap">Super-Admin</span> }
+            {admin?.role == "super" && <span className="self-center text-xl font-semibold whitespace-nowrap">Super-Admin</span>}
             {admin?.role == "partner" && <span className="self-center text-xl font-semibold whitespace-nowrap">Partner-Admin</span>}
             {admin?.role == "admin" && <span className="self-center text-xl font-semibold whitespace-nowrap">Admin</span>}
 
@@ -44,13 +45,16 @@ const Header = () => {
           </div>
           <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              
+
               <li>
                 <a href="#" className="block py-2 px-3 text-gray-100 hover:text-primary hover:bg-gray-100 lg:border-0 lg:hover:text-primary-700 lg:px-3 lg:py-1 rounded-md">Dashboard</a>
               </li>
-            
+
               {admin?.role == "super" && <li> <CreateAdmin />  </li>}
-                
+
+              {admin?.role == "partner" && <li> <CreateUser />  </li>}
+
+
               {/* <li>
                 <a href="#" className="block py-2 px-3 text-gray-100 hover:text-primary hover:bg-gray-100 lg:border-0 lg:hover:text-primary-700 lg:px-3 lg:py-1 rounded-md">Contact</a>
               </li> */}

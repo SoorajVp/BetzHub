@@ -26,6 +26,8 @@ export const userRequest = {
             console.log(error)
             if (error.response.status == 401) {
                 return { error, message: "Invalid username or password" }
+            } else if (error.response.status == 406) {
+                return { error, message: "Account action blocked" }
             } else {
                 return { error, message: "Something went wrong" }
             }

@@ -5,6 +5,8 @@ import Modal from '../../components/Admin/Dasboard/Body'
 import CreateAdmin from '../../components/Admin/Modals/CreateAdmin'
 import { AdminContext } from '../../contexts/AdminContext'
 import { useNavigate } from 'react-router-dom'
+import CreateUser from '../../components/Admin/Modals/CreateUser'
+import UserTable from '../../components/Admin/Tables/UserTable'
 
 const Dashboard = () => {
   const { admin, setAdmin } = useContext(AdminContext)
@@ -15,17 +17,21 @@ const Dashboard = () => {
       const adminData = localStorage.getItem('betzhubAdmin');
       setAdmin(JSON.parse(adminData))
     } else {
-      navigate('/super-admin/login')
+      navigate('/admin/login')
     }
   }, [])
 
   return (
     <>
       <Header />
-      {admin.role == 'super' && <AdminTable />}
+      {
+        admin.role == 'super' ?
+          <AdminTable /> :
+          <UserTable />
+      }
 
     </>
   )
 }
 
-export default Dashboard
+export default Dashboard  

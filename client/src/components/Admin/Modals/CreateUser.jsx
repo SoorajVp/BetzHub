@@ -11,7 +11,6 @@ const CreateUser = () => {
 
     const navigate = useNavigate()
 
-
     const openModal = () => {
         setModalIsOpen(true);
     };
@@ -20,16 +19,16 @@ const CreateUser = () => {
         setModalIsOpen(false);
     };
 
-    const authentication = async () => {
+    const submitUserData = async () => {
         if (!username || !phonenumber || !password) {
             alert('All fields are required');
         } else {
-            const response = await adminRequest.CreateNewAdmin({ username, phonenumber, password });
+            const response = await adminRequest.CreateNewUser({ username, phonenumber, password });
             setUserName('')
             setPhoneNumber('')
             setPassword('')
             if (response.status) {
-                alert("New user created succesfully")
+                alert("User created succesfully")
                 setModalIsOpen(false);
                 navigate('/admin')
             } else {
@@ -47,7 +46,7 @@ const CreateUser = () => {
                     className="py-2 px-3 text-gray-100 hover:text-primary hover:bg-gray-100 lg:border-0 lg:hover:text-primary-700 lg:px-3 lg:py-1 rounded-md"
                     onClick={openModal}
                 >
-                    Create Admin
+                    Create User
                 </button>
 
                 <CustomModal isOpen={modalIsOpen} closeModal={closeModal}>
@@ -90,7 +89,7 @@ const CreateUser = () => {
 
                         <div className="relative mt-2">
                             <button className='py-1 border-white hover:border-primary border rounded-md text-white bg-gradient-to-r from-red-200 to-primary w-full'
-                                onClick={authentication} >Create</button>
+                                onClick={submitUserData} >Create</button>
                         </div>
 
                     </div>

@@ -13,6 +13,8 @@ import NotAvailable from "../components/Error/NotAvailable";
 import PrivateRoute from "./PrivateRoute";
 import SuperAdmin from "../components/Admin/Login/SuperAdmin";
 import Dashboard from "../pages/Admin/Dashboard";
+import Admin from "../components/Admin/Login/Admin";
+import PartnerAdmin from "../components/Admin/Login/PartnerAdmin";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +54,12 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><OpenBets /></PrivateRoute>,
             }
         ]
+    }, {
+        path: '/admin/login',
+        element: <Admin />
+    }, {
+        path: '/partner-admin/login',
+        element: <PartnerAdmin />
     }, {
         path: '/super-admin/login',
         element: <SuperAdmin />

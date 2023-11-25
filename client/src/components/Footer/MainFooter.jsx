@@ -14,10 +14,10 @@ const MainFooter = () => {
               <h2 className='text-sm font-bold'>100% Safe & Instant Payments</h2>
               <h3 className='text-xs'>You can make payments and receive earnings instantly via your UPI ID - so you can be sure that your money is safe and secure. All UPI platforms are accepted.</h3>
           </div>
-          <div className='flex flex-col gap-3 md:items-start text-xs'>
+          <div className='flex flex-col gap-3 text-center text-xs'>
               <h2 className='text-sm font-bold'>Accepted Modes Of Payments</h2>
               <img src={PaymentIcons} alt="Payment" className='h-20' />
-              <div className='flex flex-col justify-center text-center gap-2 w-full md:w-[65%] '>
+              <div className='flex flex-col justify-center text-center gap-2 w-full'>
                   <h2 className='font-bold text-sm'>Contact Us</h2>
                   <h3 className='text-gray-500'>Whatsapp :918618521090</h3>
                   <h3 className='text-gray-500'>Calling  :918037244677</h3>
