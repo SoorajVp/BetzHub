@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { adminRequest } from '../../../services/adminService'
 import { useNavigate } from 'react-router-dom'
+import { ActionContext } from '../../../contexts/ActionContext'
 
 const AdminTable = () => {
     const [admins, setAdmins] = useState([])
+    const { action } = useContext(ActionContext);
     const naviagte = useNavigate()
 
     useEffect(() => {
         fetchAdminsList()
-    }, [naviagte])
+    }, [naviagte, action ])
 
 
     const fetchAdminsList = async () => {

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import CustomModal from './Modal';
 import { useNavigate } from 'react-router-dom';
 import { adminRequest } from '../../../services/adminService';
+import { ActionContext } from '../../../contexts/ActionContext';
 
 const CreateAdmin = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -9,6 +10,8 @@ const CreateAdmin = () => {
     const [phonenumber, setPhoneNumber] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('admin');
+
+    const { action, setAction } = useContext(ActionContext);
 
     const navigate = useNavigate()
 
@@ -27,12 +30,15 @@ const CreateAdmin = () => {
     const submitAdmin = async () => {
         if (!adminName || !phonenumber || !password) {
             alert('All fields are required');
+        } else if (phonenumber.length !== 10) {
+            alert('Invalid Mobile Number')
         } else {
             const response = await adminRequest.CreateNewAdmin({ adminName, phonenumber, password, role });
             setAdminName('')
             setPhoneNumber('')
             setPassword('')
             if (response.status) {
+                setAction(action + 1)
                 alert("Admin created succesfully")
                 setModalIsOpen(false);
                 navigate('/admin')

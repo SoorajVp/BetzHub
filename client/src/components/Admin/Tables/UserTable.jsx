@@ -17,7 +17,6 @@ const UserTable = () => {
 
     const fetchAllUserList = async () => {
         const response = await adminRequest.GetAllUserData();
-        console.log(response)
         if (response.status) {
             setUsers(response.users.reverse())
         } else {
@@ -27,7 +26,6 @@ const UserTable = () => {
 
     const fetchPAUserList = async () => {
         const response = await adminRequest.GetPAUserData();
-        console.log(response)
         if (response.status) {
             setUsers(response.users.reverse())
         } else {

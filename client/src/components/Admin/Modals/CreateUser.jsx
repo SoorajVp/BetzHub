@@ -28,11 +28,12 @@ const CreateUser = () => {
             alert('Invalid Mobile Number')
         } else {
             const response = await adminRequest.CreateNewUser({ username, phonenumber, password });
+            console.log("Created response",response)
             setUserName('')
             setPhoneNumber('')
             setPassword('')
             if (response.status) {
-                setAction(action++)
+                setAction(action + 1)
                 alert("User created succesfully")
                 setModalIsOpen(false);
                 navigate('/admin')
