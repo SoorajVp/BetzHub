@@ -27,7 +27,6 @@ const SignUp = () => {
             setPassword('')
             if (response.status) {
                 alert("User registered succesfully")
-                setIsOpen(false);
                 navigate('/')
             } else {
                 alert(response?.message)

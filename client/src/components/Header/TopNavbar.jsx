@@ -33,7 +33,6 @@ const TopNavbar = () => {
     const [depositModal, setDepositModal] = useState(false);
 
 
-
     useEffect(() => {
         const userData = localStorage.getItem('betzhubUser');
         setUser(JSON.parse(userData))

@@ -30,7 +30,6 @@ const SignIn = () => {
                 localStorage.setItem('betzhubToken', response?.token)
                 localStorage.setItem('betzhubUser', JSON.stringify(response?.user))
                 alert("Success! You've been logged in successfully")
-                setLoginModal(false)
                 navigate('/sports')
             } else {
                 alert(response?.message)

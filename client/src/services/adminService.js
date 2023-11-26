@@ -63,12 +63,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-             else if (error.response.status == 403){
+            } else if (error.response.status == 403 || error.response.status == 406){
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -86,12 +85,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -109,12 +107,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -132,12 +129,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -155,12 +151,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -178,12 +173,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response?.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -201,12 +195,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response?.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -224,12 +217,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response?.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
@@ -247,12 +239,11 @@ export const adminRequest = {
                 return { error, message: "Un-authorized request" }
             } else if (error.response?.status == 400) {
                 return { error, message: "Admin already exist" }
-            }
-            else if (error.response?.status == 403) {
+            } else if (error.response.status == 403 || error.response.status == 406) {
                 localStorage.removeItem("betzhubAdminToken")
                 localStorage.removeItem("betzhubAdmin")
+                alert("Account action blocked")
                 location.reload()
-                return { error, message: "Un-authorized request" }
             } else {
                 return { error, message: "Something went wrong" }
             }
