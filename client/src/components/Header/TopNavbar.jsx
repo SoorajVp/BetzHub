@@ -1,19 +1,20 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { UserOptions } from '../../constants/userOptions';
+import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../assets/5_1.png';
 import WalletIcon from '../../assets/wallet3line.svg';
-import addBoxIcon from '../../assets/addboxline.svg';
 import arrowIcon from '../../assets/group-1521.svg';
 import userIcon from '../../assets/user3fill.svg';
 import settingIcon from '../../assets/settings3line.svg';
+import addBoxIcon from '../../assets/addboxline.svg';
 import logoutIcon from '../../assets/logout-33.svg';
-import RegisterButton from '../Modals/Register';
-import LoginButton from '../Modals/Login';
-import { UserOptions } from '../../constants/userOptions';
 import SearchBar from './SearchBar';
 import CarouselBar from './CarouselBar';
-import { AuthContext } from '../../contexts/AuthContext';
-import Deposite from '../Modals/Deposit';
+import UserModal from '../Modals/Modal';
+import SignUp from '../Modals/SignUp';
+import SignIn from '../Modals/SignIn';
+import Deposit from '../Modals/Deposit';
 
 const navList = [
     { name: 'Sports', href: '/sports' },
@@ -27,11 +28,41 @@ const TopNavbar = () => {
     const navigate = useNavigate()
     const { user, setUser } = useContext(AuthContext)
 
-    console.log("USER STATE - ", user )
-    useEffect(()=> {
+    const [registerModal, setRegisterModal] = useState(false);
+    const [signInModal, setSignInModal] = useState(false);
+    const [depositModal, setDepositModal] = useState(false);
+
+
+
+    useEffect(() => {
         const userData = localStorage.getItem('betzhubUser');
         setUser(JSON.parse(userData))
     }, [navigate])
+
+    const openRegisterModal = () => {
+        setRegisterModal(true);
+    };
+
+    const openSigInModal = () => {
+        setSignInModal(true);
+    };
+
+    const openDepositModal = () => {
+        setDepositModal(true);
+    };
+
+    const closeRegisterModal = () => {
+        setRegisterModal(false);
+    };
+
+    const closeSignInModal = () => {
+        setSignInModal(false);
+    };
+
+    const closeDepositModal = () => {
+        setDepositModal(false);
+    };
+
 
     const logoutfn = () => {
         setUser(false)
@@ -45,7 +76,7 @@ const TopNavbar = () => {
         <div className='flex z-50 justify-between border-b border-black bg-primary text-white fixed w-full p-1'>
             <div className='flex'>
                 {
-                    location.pathname !== "/" &&  <CarouselBar />
+                    location.pathname !== "/" && <CarouselBar />
                 }
                 <div className=''>
                     <Link to='/'>
@@ -87,14 +118,18 @@ const TopNavbar = () => {
                             </div>
                         </button>
 
-                        {/* <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
+                        <button className='bg-red-400 px-2 py-1.5 m-0.5 font-bold rounded' onClick={openDepositModal} >
+
                             <div className='flex gap-1'>
                                 <img src={addBoxIcon} alt='Wallet' className='w-4' />
                                 <p className='text-xs'>Deposit</p>
                             </div>
-                        </button> */}
+                        </button>
 
-                        <Deposite />
+                        <UserModal isOpen={depositModal} closeModal={closeDepositModal}>
+                            <Deposit />
+                        </UserModal>
+
                         <img src={settingIcon} alt='Settings' className='w-6' />
                         <div className='relative'>
                             <img
@@ -121,7 +156,7 @@ const TopNavbar = () => {
 
                                     <li>
                                         <div onClick={logoutfn}
-                                            className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold' >
+                                            className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold cursor-pointer' >
                                             <div className='flex'>
                                                 <img src={logoutIcon} alt='Settings' className='w-3 mt-0.5 absolute left-3 ' />
                                                 <div className='pl-4'>Sign Out</div>
@@ -132,14 +167,27 @@ const TopNavbar = () => {
                                 </ul>
                             )}
                         </div>
-
                     </>
                 ) : (
+
                     <>
-                        <LoginButton />
-                        <RegisterButton />
+                        <button className='bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-2 md:px-3 py-1.5 font-bold rounded' onClick={openSigInModal}>
+                            SIGN IN
+                        </button>
+                        <UserModal isOpen={signInModal} closeModal={closeSignInModal}>
+                            <SignIn />
+                        </UserModal>
+
+                        <button className="bg-red-400 hover:bg-gray-50 hover:text-gray-800 transition duration-300 px-3 py-1 font-bold rounded" onClick={openRegisterModal}>
+                            REGISTER
+                        </button>
+                        <UserModal isOpen={registerModal} closeModal={closeRegisterModal}>
+                            <SignUp />
+                        </UserModal>
+
                     </>
                 )}
+
             </div>
         </div>
     );

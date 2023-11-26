@@ -10,7 +10,7 @@ const MiniFooter = () => {
                 <h3 className='text-xs text-white px-6'>Visit run567.co for tools and resources to help you stay in control of the way you play.
                 </h3>
             </div>
-            <div className=''>
+            <div className='lg:pl-28'>
                 <button className='bg-primary text-white text-sm font-semibold hover:bg-red-500 px-7 py-1.5 rounded-md'>Learn more</button>
             </div>
         </div>

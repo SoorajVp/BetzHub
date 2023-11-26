@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from 'react'
 import { adminRequest } from '../../../services/adminService'
 import { useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../../contexts/AdminContext'
+import { ActionContext } from '../../../contexts/ActionContext'
 
 const UserTable = () => {
     const [users, setUsers] = useState([])
     const naviagte = useNavigate()
     const { admin } = useContext(AdminContext)
+    const { action } = useContext(ActionContext);
 
     useEffect(() => {
         admin.role == "partner" ? fetchPAUserList() : fetchAllUserList()
-    }, [naviagte])
+    }, [naviagte, action])
 
 
     const fetchAllUserList = async () => {

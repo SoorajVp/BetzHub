@@ -3,7 +3,7 @@ import Statistics from "./Statistics"
 
 const About = () => {
   return (
-    <div className='grid md:grid-cols-3 p-2 pb-5 gap-2'>
+    <div className='grid md:grid-cols-3 p-2 py-14 gap-2'>
       <Details />
       <Statistics />
       <div className="md:col-span-1 w-full bg-gray-200 rounded-md">

@@ -2,6 +2,7 @@ import { RouterProvider } from "react-router-dom"
 import router from "./router/AppRouter.jsx"
 import AuthProvider from "./contexts/AuthContext.jsx"
 import AdminProvider from "./contexts/AdminContext.jsx"
+import ActionProvider from "./contexts/ActionContext.jsx"
 
 function App() {
 
@@ -9,7 +10,9 @@ function App() {
     <>
       <AuthProvider>
         <AdminProvider>
-          <RouterProvider router={router} />
+          <ActionProvider>
+            <RouterProvider router={router} />
+          </ActionProvider>
         </AdminProvider>
       </AuthProvider>
     </>
