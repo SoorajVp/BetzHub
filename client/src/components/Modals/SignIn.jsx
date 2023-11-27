@@ -7,6 +7,7 @@ import whatsapp from '../../assets/whatsappIcon.svg'
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { userRequest } from '../../services/userService';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
     const [username, setUserName] = useState('');
@@ -19,7 +20,7 @@ const SignIn = () => {
     const authentication = async () => {
 
         if (!username || !password) {
-            alert('All fields are required');
+            toast.error("All fields are required")
         } else {
             const response = await userRequest.login({ username, password });
             console.log('Response data - ', response);
@@ -29,10 +30,12 @@ const SignIn = () => {
                 setUser(response?.user)
                 localStorage.setItem('betzhubToken', response?.token)
                 localStorage.setItem('betzhubUser', JSON.stringify(response?.user))
-                alert("Success! You've been logged in successfully")
+                // alert("Success! You've been logged in successfully")
+                toast.success("Successfully logged in")
                 navigate('/sports')
             } else {
-                alert(response?.message)
+                // alert(response?.message)
+                toast.error(response?.message)
             }
         }
     };

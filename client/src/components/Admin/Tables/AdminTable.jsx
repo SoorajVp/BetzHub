@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { adminRequest } from '../../../services/adminService'
 import { useNavigate } from 'react-router-dom'
 import { ActionContext } from '../../../contexts/ActionContext'
+import toast from 'react-hot-toast'
 
 const AdminTable = () => {
     const [admins, setAdmins] = useState([])
@@ -26,9 +27,9 @@ const AdminTable = () => {
         const response = await adminRequest.BlockAdmin(id);
         if (response.status) {
             setAdmins(response.admins.reverse())
-            alert("Blocked succesfully")
+            toast.success("Blocked succesfully")
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 
@@ -36,10 +37,10 @@ const AdminTable = () => {
         const response = await adminRequest.UnblockAdmin(id);
         if (response.status) {
             setAdmins(response.admins.reverse())
-            alert("Unblocked succesfully")
+            toast.success("Unlocked succesfully")
             naviagte("/admin")
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 

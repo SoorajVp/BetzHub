@@ -3,6 +3,7 @@ import { adminRequest } from '../../../services/adminService'
 import { useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../../contexts/AdminContext'
 import { ActionContext } from '../../../contexts/ActionContext'
+import toast from 'react-hot-toast'
 
 const UserTable = () => {
     const [users, setUsers] = useState([])
@@ -37,9 +38,9 @@ const UserTable = () => {
         const response = await adminRequest.BlockUser(id);
         if (response.status) {
             setUsers(response.users.reverse())
-            alert("Blocked succesfully")
+            toast.success("Blocked succesfully")
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 
@@ -47,10 +48,10 @@ const UserTable = () => {
         const response = await adminRequest.UnblockUser(id);
         if (response.status) {
             setUsers(response.users.reverse())
-            alert("Unblocked succesfully")
+            toast.success("Unblocked succesfully")
             naviagte("/admin")
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 

@@ -15,6 +15,7 @@ import UserModal from '../Modals/Modal';
 import SignUp from '../Modals/SignUp';
 import SignIn from '../Modals/SignIn';
 import Deposit from '../Modals/Deposit';
+import toast from 'react-hot-toast';
 
 const navList = [
     { name: 'Sports', href: '/sports' },
@@ -68,6 +69,7 @@ const TopNavbar = () => {
         localStorage.removeItem('betzhubToken')
         localStorage.removeItem('betzhubUser')
         setDropdownOpen(false)
+        toast.success('Logged out successfully')
         navigate('/')
     }
 
@@ -143,7 +145,7 @@ const TopNavbar = () => {
                                     {UserOptions?.map((item, index) =>
                                         <li key={index}>
                                             <Link to={item?.href} onClick={() => setDropdownOpen(!isDropdownOpen)}
-                                                className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold' >
+                                                className='block w-full whitespace-nowrap px-4 py-1 hover:bg-white text-primary text-xs rounded-sm font-semibold' >
                                                 <div className='flex'>
 
                                                     <img src={item?.icon} alt='Settings' className='w-3 mt-0.5 absolute left-3 ' />
@@ -155,7 +157,7 @@ const TopNavbar = () => {
 
                                     <li>
                                         <div onClick={logoutfn}
-                                            className='block w-full whitespace-nowrap px-4 py-1 hover:bg-primary text-white text-xs rounded-sm font-semibold cursor-pointer' >
+                                            className='block w-full whitespace-nowrap px-4 py-1 hover:bg-white text-primary text-xs rounded-sm font-semibold cursor-pointer' >
                                             <div className='flex'>
                                                 <img src={logoutIcon} alt='Settings' className='w-3 mt-0.5 absolute left-3 ' />
                                                 <div className='pl-4'>Sign Out</div>

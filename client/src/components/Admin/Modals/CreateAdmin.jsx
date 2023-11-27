@@ -3,6 +3,7 @@ import CustomModal from './Modal';
 import { useNavigate } from 'react-router-dom';
 import { adminRequest } from '../../../services/adminService';
 import { ActionContext } from '../../../contexts/ActionContext';
+import toast from 'react-hot-toast';
 
 const CreateAdmin = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -29,9 +30,9 @@ const CreateAdmin = () => {
 
     const submitAdmin = async () => {
         if (!adminName || !phonenumber || !password) {
-            alert('All fields are required');
+            toast.error("All fields are required")
         } else if (phonenumber.length !== 10) {
-            alert('Invalid Mobile Number')
+            toast.error("Invalid mobile number")
         } else {
             const response = await adminRequest.CreateNewAdmin({ adminName, phonenumber, password, role });
             setAdminName('')
@@ -39,11 +40,11 @@ const CreateAdmin = () => {
             setPassword('')
             if (response.status) {
                 setAction(action + 1)
-                alert("Admin created succesfully")
+                toast.success("Admin created succesfully")
                 setModalIsOpen(false);
                 navigate('/admin')
             } else {
-                alert(response?.message)
+                toast.error(response?.message)
             }
         }
     };

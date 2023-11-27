@@ -3,6 +3,7 @@ import CustomModal from './Modal';
 import { useNavigate } from 'react-router-dom';
 import { adminRequest } from '../../../services/adminService';
 import { ActionContext } from '../../../contexts/ActionContext';
+import toast from 'react-hot-toast';
 
 const CreateUser = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -25,20 +26,20 @@ const CreateUser = () => {
         if (!username || !phonenumber || !password) {
             alert('All fields are required');
         } else if (phonenumber.length !== 10) {
-            alert('Invalid Mobile Number')
+            toast.error('Invalid mobile number')
         } else {
             const response = await adminRequest.CreateNewUser({ username, phonenumber, password });
-            console.log("Created response",response)
             setUserName('')
             setPhoneNumber('')
             setPassword('')
             if (response.status) {
                 setAction(action + 1)
-                alert("User created succesfully")
+                toast.success('User created successfully')
                 setModalIsOpen(false);
                 navigate('/admin')
             } else {
-                alert(response?.message)
+                // alert(response?.message)
+                toast.error(response?.message)
             }
         }
     };
