@@ -16,6 +16,7 @@ import SignUp from '../Modals/SignUp';
 import SignIn from '../Modals/SignIn';
 import Deposit from '../Modals/Deposit';
 import toast from 'react-hot-toast';
+import Wallet from '../Modals/Wallet';
 
 const navList = [
     { name: 'Sports', href: '/sports' },
@@ -32,6 +33,8 @@ const TopNavbar = () => {
     const [registerModal, setRegisterModal] = useState(false);
     const [signInModal, setSignInModal] = useState(false);
     const [depositModal, setDepositModal] = useState(false);
+    const [walletModal, setWalletModal] = useState(false);
+
 
 
     useEffect(() => {
@@ -51,6 +54,11 @@ const TopNavbar = () => {
         setDepositModal(true);
     };
 
+    const openWalletModal = () => {
+        setWalletModal(true);
+    };
+
+
     const closeRegisterModal = () => {
         setRegisterModal(false);
     };
@@ -61,6 +69,10 @@ const TopNavbar = () => {
 
     const closeDepositModal = () => {
         setDepositModal(false);
+    };
+
+    const closeWalletModal = () => {
+        setWalletModal(false);
     };
 
 
@@ -111,13 +123,16 @@ const TopNavbar = () => {
             <div className='flex space-x-1 md:space-x-3 p-1.5 text-xs' style={{ fontSize: '12px' }}>
                 {user ? (
                     <>
-                        <button className='bg-red-400 px-2 m-0.5 font-bold rounded'>
+                        <button className='bg-red-400 px-2 m-0.5 font-bold rounded' onClick={openWalletModal}>
                             <div className='flex gap-1'>
                                 <img src={WalletIcon} alt='Wallet' className='w-4' />
                                 <p className='text-xs'>0.00</p>
                                 <img src={arrowIcon} alt='Wallet' className='w-4 ml-1' />
                             </div>
                         </button>
+                        <UserModal isOpen={walletModal} closeModal={closeWalletModal}>
+                            <Wallet />
+                        </UserModal>
 
                         <button className='bg-red-400 px-2 py-1.5 m-0.5 font-bold rounded' onClick={openDepositModal} >
 
