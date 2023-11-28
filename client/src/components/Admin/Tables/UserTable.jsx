@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../../contexts/AdminContext'
 import { ActionContext } from '../../../contexts/ActionContext'
 import toast from 'react-hot-toast'
+import CreateUser from '../Modals/CreateUser'
 
 const UserTable = () => {
     const [users, setUsers] = useState([])
@@ -21,7 +22,7 @@ const UserTable = () => {
         if (response.status) {
             setUsers(response.users.reverse())
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 
@@ -30,7 +31,7 @@ const UserTable = () => {
         if (response.status) {
             setUsers(response.users.reverse())
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 
@@ -56,15 +57,18 @@ const UserTable = () => {
     }
 
     return (
-        <div className='md:px-[10%] pt-10'>
+        <div className='pt-3 px-2'>
             {
                 admin.role == "partner" ?
-                    <div className='text-center text-gray-800 font-semibold pb-2'>Users From Parter-Admin</div> :
-                    <div className='text-center text-gray-800 font-semibold pb-2'>All Users List</div>
+                    <div className='flex justify-between py-3'>
+                        <div className=' text-gray-800 uppercase text-lg font-semibold pt-2'>Users By Parter-Admin</div>
+                        <CreateUser />
+                    </div> :
+                    <div className='text-center text-gray-800 uppercase font-semibold pb-2'>All Users List</div>
             }
             <div className="relative overflow-x-auto">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead className="text-xs text-gray-700 uppercase bg-red-200 ">
+                    <thead className="text-xs text-white uppercase bg-red-500 ">
                         <tr>
                             <th scope="col" className="px-6 py-3"> User Name</th>
                             <th scope="col" className="px-6 py-3"> Whatsapp Number</th>
@@ -85,8 +89,8 @@ const UserTable = () => {
                                     <td className="px-6 py-2">
                                         {
                                             item?.FromPA ?
-                                                <div className='px-4 py-0.5 bg-green-200 w-fit text-green-800 rounded-xl'>True</div> :
-                                                <div className='px-4 py-0.5 bg-orange-200  w-fit text-orange-800 rounded-xl'>False</div>
+                                                <div className='px-4 py-0.5 bg-green-50 w-fit text-green-800 rounded-xl'>True</div> :
+                                                <div className='px-4 py-0.5 bg-orange-50  w-fit text-orange-800 rounded-xl'>False</div>
                                         }
 
                                     </td>

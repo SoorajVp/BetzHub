@@ -15,6 +15,10 @@ import SuperAdmin from "../components/Admin/Login/SuperAdmin";
 import Dashboard from "../pages/Admin/Dashboard";
 import Admin from "../components/Admin/Login/Admin";
 import PartnerAdmin from "../components/Admin/Login/PartnerAdmin";
+import AdminLayout from "../pages/Admin/Layout";
+import UserTable from "../components/Admin/Tables/UserTable";
+import UserList from "../pages/Admin/UserList";
+import AdminList from "../pages/Admin/AdminList";
 
 const router = createBrowserRouter([
     {
@@ -65,8 +69,21 @@ const router = createBrowserRouter([
         element: <SuperAdmin />
     }, {
         path: '/admin',
-        element: <Dashboard  />
+        element: <AdminLayout />,
+        errorElement: <AdminLayout />,
+        children: [
+            {
+                path: '',
+                element: <Dashboard />,
+            }, {
+                path: 'users',
+                element: <UserList />,
+            }, {
+                path: 'lists',
+                element: <AdminList />,
+            },
+        ]
     }
 ])
 
-export default router;
+export default router;  

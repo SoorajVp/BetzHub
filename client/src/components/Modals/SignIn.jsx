@@ -34,7 +34,6 @@ const SignIn = () => {
                 toast.success("Successfully logged in")
                 navigate('/sports')
             } else {
-                // alert(response?.message)
                 toast.error(response?.message)
             }
         }

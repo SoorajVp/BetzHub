@@ -3,6 +3,7 @@ import { adminRequest } from '../../../services/adminService'
 import { useNavigate } from 'react-router-dom'
 import { ActionContext } from '../../../contexts/ActionContext'
 import toast from 'react-hot-toast'
+import CreateAdmin from '../Modals/CreateAdmin'
 
 const AdminTable = () => {
     const [admins, setAdmins] = useState([])
@@ -11,7 +12,7 @@ const AdminTable = () => {
 
     useEffect(() => {
         fetchAdminsList()
-    }, [naviagte, action ])
+    }, [naviagte, action])
 
 
     const fetchAdminsList = async () => {
@@ -19,7 +20,7 @@ const AdminTable = () => {
         if (response.status) {
             setAdmins(response.admins.reverse())
         } else {
-            alert(response?.message)
+            toast.error(response?.message)
         }
     }
 
@@ -45,11 +46,14 @@ const AdminTable = () => {
     }
 
     return (
-        <div className='md:px-[10%] pt-10'>
-            <div className='text-center text-gray-800 font-semibold pb-2'>All Admins List</div>
+        <div className='px-2'>
+            <div className='flex justify-between py-3'>
+                <div className=' text-gray-800 uppercase text-lg font-semibold pt-2'>Admins List</div>
+                <CreateAdmin />
+            </div>
             <div className="relative overflow-x-auto">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead className="text-xs text-gray-700 uppercase bg-red-200 ">
+                    <thead className="text-xs text-white uppercase bg-red-500 ">
                         <tr>
                             <th scope="col" className="px-6 py-3">
                                 Admin Name

@@ -4,9 +4,9 @@ const CustomError = require("../utils/errors/CustomError");
 
 module.exports.getAllusers = async (req, res, next) => {
     try {
-        if (req.admin.role != 'admin') {
-            throw new CustomError(401, "Un-authorized request");
-        }
+        // if (req.admin.role != 'admin') {
+        //     throw new CustomError(401, "Un-authorized request");
+        // }
         const users = await User.find({})
         res.status(201).json({ status: true, users });
     } catch (error) {

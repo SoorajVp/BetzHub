@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { adminRequest } from '../../../services/adminService';
 import { AdminContext } from '../../../contexts/AdminContext';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
@@ -19,20 +20,19 @@ const Admin = () => {
 
     const authentication = async () => {
         if (!adminName || !password) {
-            alert('All fields are required');
+            toast.error('All fields are required')
         } else {
             const response = await adminRequest.adminLogin({ adminName, password });
-            console.log('Response data - ', response);
             setAdminName('')
             setPassword('')
             if (response.status) {
                 setAdmin(response?.admin)
                 localStorage.setItem('betzhubAdminToken', response?.token)
                 localStorage.setItem('betzhubAdmin', JSON.stringify(response?.admin))
-                alert("Success! You've been logged in successfully")
+                toast.success("Success! You've been logged in successfully")
                 navigate('/admin')
             } else {
-                alert(response?.message)
+                toast.error(response?.message)
             }
         }
     };

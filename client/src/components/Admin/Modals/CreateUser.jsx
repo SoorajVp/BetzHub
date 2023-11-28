@@ -36,7 +36,7 @@ const CreateUser = () => {
                 setAction(action + 1)
                 toast.success('User created successfully')
                 setModalIsOpen(false);
-                navigate('/admin')
+                navigate('/admin/users')
             } else {
                 // alert(response?.message)
                 toast.error(response?.message)
@@ -47,13 +47,14 @@ const CreateUser = () => {
 
     return (
         <div>
-
             <div>
-                <button
-                    className="py-2 px-3 text-gray-100 hover:text-primary hover:bg-gray-100 lg:border-0 lg:hover:text-primary-700 lg:px-3 lg:py-1 rounded-md"
-                    onClick={openModal}
-                >
-                    Create User
+                <button onClick={openModal} className='flex gap-1 py-1.5 px-4 border border-primary text-primary hover:bg-primary hover:text-white font-medium rounded-md text-sm group'>
+                    <svg className="flex-shrink-0 w-4 h-4 text-primary transition duration-75 group-hover:text-white" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="currentColor"  >
+                        <path d="M496 304m-208 0a208 208 0 1 0 416 0 208 208 0 1 0-416 0Z" />
+                        <path d="M600.64 576a421.44 421.44 0 0 0-111.36-14.4c-358.4 0-369.28 384-369.28 384H582.4A256 256 0 0 1 600.64 576z" />
+                        <path d="M768 576a192 192 0 1 0 192 192 192 192 0 0 0-192-192z m42.56 228.48v96h-64v-96h-96v-64h96v-96h64v96h96v64z" />
+                    </svg>
+                    CREATE USER
                 </button>
 
                 <CustomModal isOpen={modalIsOpen} closeModal={closeModal}>
