@@ -38,4 +38,3 @@ module.exports.getPAusers = async (req, res, next) => {
         next(error);
     }
 }
-

@@ -9,7 +9,7 @@ const Deposit = () => {
 
 
     return (
-        <div className='px-4'>
+        <div className='px-4 font-montserrat'>
             <div className="flex justify-center m-5">
                 <div className="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input

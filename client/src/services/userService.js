@@ -5,7 +5,6 @@ export const userRequest = {
     register: async (userData) => {
         try {
             const response = await userInstance.post('/auth/register', userData);
-            console.log(response)
             return response.data;
         } catch (error) {
             console.log(error)

@@ -8,29 +8,36 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { userRequest } from '../../services/userService';
 import toast from 'react-hot-toast';
+import { AdminContext } from '../../contexts/AdminContext';
 
 const SignIn = () => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
     const { setUser } = useContext(AuthContext)
-
+    const { setAdmin } = useContext(AdminContext)
+ 
     const navigate = useNavigate()
 
     const authentication = async () => {
 
-        if (!username || !password) {
+        if (!username || !password ) {
             toast.error("All fields are required")
         } else {
             const response = await userRequest.login({ username, password });
             console.log('Response data - ', response);
             setUserName('')
             setPassword('')
-            if (response.status) {
+            if (response.status == 'admin') {
+                setAdmin(response?.admin)
+                localStorage.setItem('betzhubAdminToken', response?.adminToken)
+                localStorage.setItem('betzhubAdmin', JSON.stringify(response?.admin))
+                toast.success("Admin logged in successfully")
+                navigate('/admin/')
+            } else if (response.status == 'user') {
                 setUser(response?.user)
                 localStorage.setItem('betzhubToken', response?.token)
                 localStorage.setItem('betzhubUser', JSON.stringify(response?.user))
-                // alert("Success! You've been logged in successfully")
                 toast.success("Successfully logged in")
                 navigate('/sports')
             } else {

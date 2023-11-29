@@ -38,6 +38,22 @@ module.exports.Login = async (req, res, next) => {
   };
 
   try {
+    const admin = await Admin.findOne({ adminName: userDetails.username });
+    if (admin) {
+      if (admin.isBlocked) {
+        throw new CustomError(406, "Account action blocked");
+      }
+      const checkPassword = await bcrypt.compare(
+        userDetails.password,
+        admin.password
+      );
+      if (!checkPassword) {
+        throw new CustomError(401, "Unauthorized: Incorrect Password");
+      }
+      
+      const adminToken = createSecretToken(admin._id);
+      res.status(201).json({ status: 'admin', adminToken, admin });
+    }
     const user = await User.findOne({ username: userDetails.username });
     if (!user) {
       throw new CustomError(401, "Unauthorizzed: username does not exist");
@@ -54,7 +70,7 @@ module.exports.Login = async (req, res, next) => {
       throw new CustomError(401, "Unauthorized: Incorrect Password");
     }
     const token = createSecretToken(user._id);
-    res.status(201).json({ status: true, token, user });
+    res.status(201).json({ status: 'user', token, user });
   } catch (error) {
     console.log(error);
     next(error);
